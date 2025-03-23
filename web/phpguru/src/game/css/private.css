@@ -1,0 +1,126 @@
+@font-face {
+    font-family: 'TT-Commons';
+    src: url('../fonts/TT-Commons.ttf') format('truetype');
+}
+
+body {
+    font-family: 'TT-Commons', sans-serif !important;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2%;
+}
+
+.card {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 50%;
+    width: 100%;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.1);
+    animation: fadeInUp 1s ease-in-out;
+}
+
+@media (max-width: 768px) {
+    .card {
+        padding: 1.5rem;
+        max-width: 80%;
+    }
+}
+
+@media (max-width: 576px) {
+    .card {
+        padding: 1rem;
+        max-width: 90%;
+    }
+}
+
+.stylish-list {
+    transition: all 0.3s ease-in-out;
+    border-radius: 0.75rem;
+    text-align: center;
+    font-size: 1.2rem;
+    padding: 0.75rem;
+}
+
+.stylish-list:hover {
+    background: #764ba2;
+    color: white;
+    box-shadow: 0 0.25rem 0.75rem rgba(118, 75, 162, 0.3);
+}
+
+@media (max-width: 768px) {
+    .stylish-list {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+}
+
+pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-size: 1rem;
+    font-family: 'Courier New', monospace;
+    background: #f8f9fa;
+    padding: 1.5rem;
+    border-radius: 0.75rem;
+    text-align: left;
+    overflow-x: auto;
+    max-height: 50vh;
+}
+
+@media (max-width: 768px) {
+    pre {
+        font-size: 0.9rem;
+        padding: 1rem;
+        max-height: 40vh;
+    }
+}
+
+@media (max-width: 576px) {
+    pre {
+        font-size: 0.85rem;
+        padding: 0.75rem;
+        max-height: 35vh;
+    }
+}
+
+.btn {
+    width: 100%;
+    border-radius: 1.5rem;
+    padding: 0.75rem 1rem;
+    font-size: 1.2rem;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: #764ba2;
+    box-shadow: 0 0.25rem 0.75rem rgba(118, 75, 162, 0.3);
+}
+
+@media (max-width: 768px) {
+    .btn {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .btn {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(5%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

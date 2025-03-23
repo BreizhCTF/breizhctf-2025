@@ -1,0 +1,42 @@
+@font-face {
+    font-family: 'OffBit-Regular';
+    src: url('../fonts/OffBit-Regular.ttf') format('truetype');
+}
+
+body{
+    font-family: 'OffBit-Regular', sans-serif !important;
+    background-color: black;
+}
+
+.custom-nav-item {
+    font-size: 1.5rem !important;
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+}
+
+.custom-nav-item::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0%;
+    height: 3px;
+    background-color: #cb1583;
+    transition: all 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+.custom-nav-item:hover::after {
+    width: 100%;
+}
+
+.hyperlink {
+    color: #cb1583;
+}
+
+.btn-color {
+    background-color: #cb1583 !important;
+    border-color: #cb1583 !important;
+    color: white !important;
+}

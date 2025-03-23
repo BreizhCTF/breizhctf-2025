@@ -1,0 +1,64 @@
+name: "ColourPicker"
+author: "Mika"
+category: Web
+description: |-
+    ![ColourPicker](https://media1.tenor.com/m/cXXIop9N2VAAAAAd/color-pallete.gif)
+
+    J'ai créé une appli qui vous permet de choisir une couleur personnalisée pour le front-end, c'est toujours en beta mais n'hésitez pas à jouer avec, de toute façon j'ai fait attention à la sécurité.
+
+    Auteur : [Mika](https://x.com/bWlrYQ)
+
+
+attribution: 'Auteur : [Mika](https://x.com/bWlrYQ)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: colourpicker
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+flags:
+    - BZHCTF{SQLi_t0_RC3_WiTH_JWT_N_CSS:o}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Moyen
+    - Python
+    - JWT
+    - Web-Serveur
+
+# Liste des fichiers à fournirs aux joueurs
+#files:
+#    - files/
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+#requirements:
+#    - "Warmup"
+#    - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

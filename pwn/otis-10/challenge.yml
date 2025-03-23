@@ -1,0 +1,65 @@
+name: "Otis 10"
+author: "Tek"
+category: Pwn
+description: |-
+    ![Vache](https://c.tenor.com/4LQhwS7MZUsAAAAC/tenor.gif)
+
+    Vous avez trouvé une montre qui vous permet de changer d'apparence. Trouvez un moyen d'en prendre le contrôle.
+
+    > Note : L'installation du paquet `cowsay` n'est pas nécessaire pour le challenge mais conseillé (vous ne pourrez pas profiter des superbes visuels si vous ne l'installez pas).
+
+    Auteur : [Tek](#)
+
+attribution: 'Auteur : Tek'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: otis-10
+    initial: 500
+    decay: 100
+    minimum: 50
+
+# Pour les challenge à la demande uniquement
+# À remplir par un sysadmin
+# template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+flags:
+    - BZHCTF{175_h3r0_71m3_3200c5e18aefd636}
+
+# Les topics ne sont visibles que par les admins
+topics:
+    - vache + ben 10
+    - heap simple
+    - use-after-free
+    - contrôler l'argument à system
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+    - C
+    - Pwn
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/otis_10.zip
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+# requirements:
+#     - "Warmup"
+#     - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

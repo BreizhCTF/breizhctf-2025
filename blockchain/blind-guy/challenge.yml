@@ -1,0 +1,63 @@
+name: "Blind Guy"
+author: "K.L.M"
+category: Blockchain
+description: |-
+  ![Blind](https://media1.tenor.com/m/F1Gn0Z_KogUAAAAC/mouxy-cotorep.gif)
+
+  Vous vous réveillez dans une dimension alternative, et entendez une voix au loin qui vous indique de prendre le bon chemin. 
+  
+  Impossible d'ouvrir les yeux, vous devrez avancer en testant vos sens et votre perception de l'épreuve qui vous attend. 
+  
+  Trouvez un moyen de réussir l'épreuve.
+
+  Auteur : [K.L.M](#)
+
+
+attribution: 'Auteur : K.L.M'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: blind-guy
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+
+flags:
+    - BZHCTF{I_4m_jUsT_4_Bl1nd_GuY}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Moyen
+    - Blockchain
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+#requirements:
+#    - "Warmup"
+#    - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

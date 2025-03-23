@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>ByNormandie</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+  <nav class="bg-black p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold text-green-400">ByNormandie</a>
+      <div class="space-x-4">
+        <a href="/" class="hover:text-green-400">Accueil</a>
+        <a href="/about" class="hover:text-green-400">À propos</a>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container mx-auto p-8">
+    <h1 class="text-5xl font-extrabold text-center mb-12">
+      Prix des crypto-monnaies en temps réel
+    </h1>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+      {% for crypto in cryptos %}
+      <div class="bg-gray-800 border border-green-400 rounded-lg p-6 hover:shadow-lg transition duration-300">
+        <h2 class="text-3xl font-bold mb-4">{{ crypto.name }}</h2>
+        <p class="text-xl mb-4">Prix : {{ crypto.price }} USD</p>
+        <a href="/crypto/{{ crypto.id }}" class="block text-center bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded">
+          Voir Le Graphique
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</body>
+</html>

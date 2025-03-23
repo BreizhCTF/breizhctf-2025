@@ -1,0 +1,50 @@
+name: "BreizhBoot (3/3)"
+author: "Drahoxx"
+category: Hardware
+description: |-
+    ![imgrandom](https://media1.tenor.com/m/rQf5HNbmk3UAAAAC/vovasvetsov.gif)
+
+    **Si l'exploit fonctionne en local, mais pas en remote, merci de venir à la table des admins.**
+
+    Vous avez récupéré l'accès à une puce RISC-V qui est connectée à deux disques. Le premier disque est accessible et contient une fitImage. À l'aide de vos sondes, vous êtes en mesure de le réécrire aisément. L'autre disque est totalement innaccessible.
+    À vous d'accéder au contenu du second disque en démarrant une image linux customisé tout en contournant le secure-boot mis en place !
+
+    **Lisez le README.md pour comprendre le setup et le challenge :)**
+
+    > Une fois le secure-boot passé, il se peut que rien ne s'affiche (ex: Gentoo).
+    > Essayez sur une VM Debian/Ubuntu, ou venez à la table admin ;)
+
+    Auteur : [Drahoxx](https://x.com/50mgDrahoxx)
+
+attribution: 'Auteur : [Drahoxx](https://x.com/50mgDrahoxx)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: breizh-boot-3
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - BZHCTF{BreAk1nG_S3cUr3-B00t_Lik3_A_Leg3nd}
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Très Difficile
+    - Pwn
+    - Bootloader
+
+# Liste des fichiers à fournirs aux joueurs
+files: 
+  - "files/breizh_boot_3.tar.gz"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"
+

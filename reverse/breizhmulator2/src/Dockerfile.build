@@ -1,0 +1,18 @@
+FROM python:3.9-slim
+
+RUN apt-get update && apt-get install -y gcc make
+
+WORKDIR /app
+
+COPY vm.c /app/
+COPY client.py /app/
+
+
+RUN gcc -o vm /app/vm.c -s
+RUN mkdir -p /output
+
+RUN cp /app/vm /output/
+RUN cp /app/client.py /output/
+
+# Lancer le conteneur et laisser tourner
+CMD ["tail", "-f", "/dev/null"]

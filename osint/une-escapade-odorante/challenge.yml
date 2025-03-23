@@ -1,0 +1,42 @@
+name: "Une escapade odorante"
+author: "Daeras"
+category: OSINT
+description: |-
+    ![Cat](https://media1.tenor.com/m/NrpZGXmItVYAAAAd/smelly-stink.gif)
+
+    Les recherches continuent, notamment sur le lien entre Eduardo et son poursuivant, et sur des événements qui auraient eu lieu la nuit dernière. Florian vous donne une nouvelle piste à travers un pseudo qu’Eduardo utilisait : SullyLovesPlants.
+    Qu’est écrit sur la devanture du bâtiment devant lequel nous avons perdu le contact d’Eduardo ?
+
+    Auteur : [Daeras](#)
+
+
+attribution: 'Auteur : [Daeras](#)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - BZHCTF{Le Solidor}
+    - BZHCTF{Le_Solidor}
+    - BZHCTF{le Solidor}
+    - BZHCTF{le_Solidor}
+    - BZHCTF{le solidor}
+    - BZHCTF{le_solidor}
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Difficile
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"
+

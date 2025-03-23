@@ -1,0 +1,61 @@
+name: "Odobenus rosmarus"
+author: ribt
+category: Hardware
+description: |-
+    ![Morse](https://media1.tenor.com/m/McSwVUFwyV8AAAAd/50first-dates-jocko-the-walrus.gif)
+
+    Retrouvez le message caché dans ce fichier audio.
+
+    Format du flag : `BZHCTF{PHRASE_EN_MAJUSCULES_AVEC_DES_UNDERSCORES}`
+
+    Auteur : [ribt](https://github.com/ribt)
+
+
+attribution: 'Auteur : [ribt](https://github.com/ribt)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+flags:
+    - BZHCTF{MES_DENTS_SONT_GRANDES}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Très Facile
+    - Télécommunication
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/odobenus_rosmarus.mp3
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+requirements: []
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

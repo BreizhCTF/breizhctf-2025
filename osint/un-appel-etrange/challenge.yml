@@ -1,0 +1,58 @@
+name: "Un appel étrange..."
+author: "Paudou"
+category: OSINT
+description: |-
+    ![Cat](https://media1.tenor.com/m/SDOZsm56aVcAAAAC/juan-diaz-hiroshi-jito.gif)
+
+    Votre téléphone sonne. C’est Florian, votre ami journaliste. D’une voix fatiguée, il vous raconte : 
+    
+    > J’ai rencontré un homme hier en soirée, son histoire était abracadabrantesque mais elle m’a intrigué et mériterait d’être publique.
+    > J’avais trop bu, mais des bribes me reviennent petit à petit :
+    > Il me semble que son récit commençait dans une région que j’avais visité en même temps que lui : La Casamance.
+    > Il m’a parlé d’un incident qu’il avait vécu là-bas à cette époque.
+    > Je me rappelle m’être fait la réflexion qu’il avait eu lieu le lendemain de la qualification des Reds contre I Giallorossi.
+
+    Le flag est au format `BZHCTF{Nomdupont_01021978_ABCD}` (où ABCD est un acronyme en 4 lettres, directement lié à l’incident)
+
+    Auteur : [Paudou](#)
+
+
+attribution: 'Auteur : [Paudou](#)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+flags:
+    - BZHCTF{Niambalang_03052018_MFDC}
+    - BZHCTF{niambalang_03052018_MFDC}
+    - BZHCTF{NIAMBALANG_03052018_MFDC}
+    - BZHCTF{Niambalang_03052018_mfdc}
+    - BZHCTF{niambalang_03052018_mfdc}
+    - BZHCTF{NIAMBALANG_03052018_mfdc}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Très Facile
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

@@ -1,0 +1,51 @@
+name: "GORMiti"
+author: "Al-oxos"
+category: Web
+description: |-
+    ![gormiti](https://media1.tenor.com/m/bAsfAGbFCakAAAAd/gormiti-poivrons.gif)
+
+    Il y a fort longtemps, un monde merveilleux de combat épique pour sauver la nature a vu le jour.
+    Ce monde, nous l'avons admiré, nous l'avons aimé, nous l'avons vécu. A travers la télévision, la magie des Gormitis nous a transporté dans un monde où la nature est reine.
+    Alors pour rendre hommage à ce monde, j'ai décidé d'ouvrir mon propre blog sur l'histoire de gormiti.
+    C'est encore en version beta, mais j'ai fait attention à tout bien sécuriser !
+
+    Auteur : [Al-oxos](#)
+
+
+attribution: 'Auteur : Al-oxos'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: gormiti
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - BZHCTF{G0rM1t1_1s_4m4z1ng_3v3n_w1th_h2c_smuggl1ng_4nd_sQL1}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+    - Golang
+    - Nginx
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/GORMiti.zip
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

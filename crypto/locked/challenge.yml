@@ -1,0 +1,59 @@
+name: "Locked"
+author: "TheoR"
+category: Crypto
+description: |-
+    ![Time](https://en.meming.world/images/en/6/64/Squidward%27s_Clock_Closet.jpg)  
+
+    Je viens de découvrir un tout nouveau chiffrement qui me permet de bloquer le déchiffrement avant une date spécifique.
+
+    J'ai fixé la date après la fin du CTF, sauriez-vous le récupérer avant qu'il soit divulgué à tous ? 
+
+    Auteur : [TheoR](#)
+
+
+attribution: 'Auteur : TheoR'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    template_name: locked
+
+flags:
+    - BZHCTF{Une_blockchain_comme_PRNG_aurait_surement_ete_plus_securise}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Difficile
+    - TimeLockedEncryption
+    - Crypto
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/crypto_locked.py
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+#requirements:
+#    - "Warmup"
+#    - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

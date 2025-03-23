@@ -1,0 +1,116 @@
+{% include 'generic/head.html' %}
+
+{% block content %}
+<script src="{{ url_for('static', filename='js/unlock.js') }}" nonce="{{nonce}}"></script>
+<script src="{{ url_for('static', filename='js/create.js') }}" nonce="{{nonce}}"></script>
+
+<div class="modal fade" id="unlockVaultModal" tabindex="-1" aria-labelledby="unlockVaultModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="unlockVaultModalLabel">Déverrouiller un Vault</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="unlockVaultForm" method="POST" action="{{ url_for('unlock') }}">
+                    <div class="mb-3">
+                        <label for="vaultId" class="form-label">ID Vault</label>
+                        <select class="form-select" id="vaultId" name="vaultId" required>
+                            <option value="" selected disabled>Choisir un Vault</option>
+                            {% for vault in vaults %}
+                            <option value="{{ vault.id|safe }}">Vault n°{{ vault.id|safe }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="mb-3 text-center">
+                        <label for="pinCode" class="form-label">Entrer un code PIN</label>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <input type="text" class="form-control text-center" id="pinCode" readonly name="pinCode">
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <div id="pinPad" class="d-grid gap-2 mx-auto">
+                            {% for i in range(1, 10) %}
+                            <button type="button" class="btn btn-outline-primary pin-btn" id="pin{{i|safe}}">{{i|safe}}</button>
+                            {% endfor %}
+                            <button type="button" class="btn btn-danger" id="clearPin">⌫</button>
+                            <button type="button" class="btn btn-outline-primary pin-btn" id="pin0">0</button>
+                            <button type="submit" class="btn btn-success">Unlock</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="createVaultModal" tabindex="-1" aria-labelledby="createVaultModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createVaultModalLabel">Créer un nouveau Vault</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="createVaultForm" method="POST" action="{{ url_for('create') }}">
+                    
+                    <div class="mb-3">
+                        <label for="vaultName" class="form-label">Nom du Vault</label>
+                        <input type="text" class="form-control" id="vaultName" name="vaultName" required>
+                    </div>
+
+                    <div class="mb-3 text-center">
+                        <label for="pinCodeCreate" class="form-label">Choisir un code PIN</label>
+                        <div class="d-flex justify-content-center align-items-center">
+                            <input type="text" class="form-control text-center" id="pinCodeCreate" readonly name="pinCode">
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <div id="pinPadCreate" class="d-grid gap-2 mx-auto">
+                            {% for i in range(1, 10) %}
+                            <button type="button" class="btn btn-outline-primary pin-btn-create" id="pinCreate{{i|safe}}">{{i}}</button>
+                            {% endfor %}
+                            <button type="button" class="btn btn-danger" id="clearPinCreate">⌫</button>
+                            <button type="button" class="btn btn-outline-primary pin-btn-create" id="pinCreate0">0</button>
+                            <button type="submit" class="btn btn-success">Créer</button>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container w-75">
+    <div class="text-center">
+        <button class="btn btn-primary mx-1 my-1" id="openCreateVaultModal">Créer un nouveau Vault</button>
+        <button class="btn btn-primary mx-1 my-1" id="openUnlockModal">Déverrouiller un Vault</button>
+    </div>
+    {% if vaults %}
+    <hr>
+    <div class="row">
+        {% for vault in vaults %}
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <span>Vault n°{{ vault.id|safe }}</span>
+                    {% if vault.is_paying_customer %}
+                    <span class="badge bg-warning text-dark">Premium</span>
+                    {% endif %}
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{ vault.name|safe }}</h5>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% include 'generic/footer.html' %}

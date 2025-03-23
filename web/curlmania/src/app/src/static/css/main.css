@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'Anthrope';
+    src: url('../fonts/Anthrope.ttf') format('truetype');
+}
+
+body{
+    font-family: 'Anthrope', sans-serif !important;
+    color: #ead8f2;
+    background-color: #1d1e20;
+}
+
+h1 {
+    color: #ead8f2 !important;
+}
+
+#rules {
+    background-color: #ead8f2 !important;
+    color: #2f2b30 !important;
+}

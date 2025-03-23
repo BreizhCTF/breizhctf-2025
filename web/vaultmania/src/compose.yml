@@ -1,0 +1,26 @@
+version: '3'
+services:
+  vaultmania:
+    build: 
+      context: ./app/
+      dockerfile: Dockerfile
+    ports:
+      - 8003:80
+    environment:
+      - PORT=80
+      - DEBUG=False
+      - VAULT_PIN=8751239460
+      - FLAG=BZHCTF{P1N_ExF1LTR4T10N_No_J4v4scR1pT_G03s_Brrr<3}
+    mem_limit: 512m
+    cpu_count: 1
+
+  bot:
+    build:
+      context: ./bot/
+      dockerfile: bot.Dockerfile
+    network_mode: service:vaultmania
+    environment:
+      - VAULTMANIA_URL=http://localhost/vaults
+      - VAULT_PIN=8751239460
+    mem_limit: 2g
+    cpu_count: 2

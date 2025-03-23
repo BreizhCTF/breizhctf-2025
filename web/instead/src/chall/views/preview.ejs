@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Prévisualisation du CV</title>
+    <style>
+      #viewer {
+        width: 100%;
+        height: 100%;
+      }
+      #the-canvas {
+        border: 1px solid #ccc;
+      }
+    </style>
+</head>
+<body>
+    <div id="viewer">
+        <canvas id="the-canvas"></canvas>
+    </div>
+    <!-- Importer PDF.js en mode module -->
+    <script type="module">
+      import { getDocument, GlobalWorkerOptions } from "/pdf.mjs";
+      GlobalWorkerOptions.workerSrc = "/pdf.worker.mjs";
+      
+      const dataURL = "<%= dataURL %>";  
+      const loadingTask = getDocument(dataURL);
+      loadingTask.promise.then(pdf => {
+          pdf.getPage(1).then(page => {
+              const scale = 1.5;
+              const viewport = page.getViewport({ scale });
+              const canvas = document.getElementById('the-canvas');
+              const context = canvas.getContext('2d');
+              canvas.height = viewport.height;
+              canvas.width = viewport.width;
+              const renderContext = {
+                  canvasContext: context,
+                  viewport: viewport
+              };
+              page.render(renderContext).promise.then(() => {
+                  console.log('Page rendue');
+              });
+          });
+      }).catch(reason => {
+          console.error(reason);
+      });
+    </script>
+</body>
+</html>

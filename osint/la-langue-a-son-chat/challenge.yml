@@ -1,0 +1,45 @@
+name: "La langue à son chat"
+author: "Daeras"
+category: OSINT
+description: |-
+    ![Cat](https://media1.tenor.com/m/QWKhvNRjKeQAAAAC/cat-kitty.gif)
+
+    Les informations s’accumulent sur Eduardo, et il semble qu’il était persuadé que quelqu’un était à ses trousses. Le contact qu’il a rencontré hier soir lui a probablement donné des informations sur le sujet. En interrogeant les employés du lieu de la rencontre, l’un d’entre eux a trouvé une serviette gribouillée sur la table quand ils sont partis, qu’il s’apprêtait à brûler. Il dit aussi les avoir entendus converser d’un développeur de virus, mais il n’en sait pas plus.
+    Trouvez le nom et le prénom de la personne qui suit Eduardo.
+
+    Le flag est au format `BZHCTF{Prénom_Nom}`.
+
+    Auteur : [Daeras](#)
+
+
+attribution: 'Auteur : [Daeras](#)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - BZHCTF{Serguei_Abakorich}
+    - BZHCTF{serguei_abakorich}
+    - BZHCTF{Serguei_ABAKORICH}
+    - BZHCTF{serguei_ABAKORICH}
+
+files: 
+    - files/serviette.jpg
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Moyen
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"
+

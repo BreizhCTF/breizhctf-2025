@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Connexion{% endblock %}
+{% block content %}
+    <h1 class="ma-police">Connexion</h1>
+    <form method="POST">
+        <input type="text" name="username" placeholder="Nom d'utilisateur" required>
+        <input type="password" name="password" placeholder="Mot de passe" required>
+        <button type="submit" class="btn">Se connecter</button>
+    </form>
+    <a href="{{ url_for('register') }}" class="btn btn-alt">Créer un compte</a>
+{% endblock %}
+

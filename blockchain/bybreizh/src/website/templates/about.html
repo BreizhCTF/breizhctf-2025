@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>À propos de CrêpesMaster</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-white">
+  <nav class="bg-black p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold text-green-400">ByNormandie</a>
+      <div class="space-x-4">
+        <a href="/" class="hover:text-green-400">Accueil</a>
+        <a href="/about" class="hover:text-green-400">À propos</a>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container mx-auto p-8">
+    <h1 class="text-4xl font-bold mb-6 text-center">À propos de CrêpeMaster</h1>
+    <div class="flex flex-col items-center">
+      <img src="{{ url_for('static', filename='images/crepemaster.png') }}" class="w-48 h-48 rounded-full mb-4 border-4 border-yellow-500">
+      <h2 class="text-2xl font-semibold mb-2">CrêpesMaster</h2>
+      <p class="text-center max-w-2xl">
+        Je suis <span class="font-bold text-yellow-400">CrêpesMaster</span>, le hacker légendaire qui a révolutionné l'univers de blockchain.
+        Ma maîtrise du code est inégalée et mes exploits font trembler même les systèmes les mieux protégés.
+        J'ai créé ByNormandie car je n'aimais pas la plateforme ByBreizh... J'ai d'ailleurs volé leur fonds hahahaha !
+      </p>
+    </div>
+    <div class="mt-8 text-center">
+      <a href="/" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+        Retour au Dashboard
+      </a>
+    </div>
+  </div>
+</body>
+</html>

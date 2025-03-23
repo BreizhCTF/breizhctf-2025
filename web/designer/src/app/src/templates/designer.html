@@ -1,0 +1,169 @@
+{% include 'generic/head.html' %}
+
+{% block content %}
+<script src="{{url_for('static', filename='js/designer.js')}}" defer nonce="{{nonce}}"></script>
+<div class="container-fluid w-50 mx-auto mt-2 mb-5">
+    <div class="container">
+        <h2 class="text-center">Do It Yourself!</h2>
+        {% if error %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{error}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        <form method="GET" action="{{url_for('designer')}}" class="">
+            <fieldset class="border p-4">
+                <legend class="w-auto px-2">Paramètres du bouton</legend>
+                <div class="row ms-1">
+                    <div class="mb-3 form-check col-sm">
+                        <input type="checkbox" class="form-check-input" id="autofocus" name="autofocus">
+                        <label class="form-check-label" for="autofocus">Autofocus</label>
+                    </div>
+                    <div class="mb-3 form-check col-sm">
+                        <input type="checkbox" class="form-check-input" id="commandfor" name="commandfor">
+                        <label class="form-check-label" for="commandfor">Commandfor</label>
+                    </div>
+                    <div class="mb-3 form-check col-sm">
+                        <input type="checkbox" class="form-check-input" id="disabled" name="disabled">
+                        <label class="form-check-label" for="disabled">Disabled</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="mb-3 col-sm">
+                        <label for="command" class="form-label">Command</label>
+                        <select class="form-select" id="command" name="command">
+                            <option value="none">None</option>
+                            <option value="show-modal">Show Modal</option>
+                            <option value="close">Close</option>
+                            <option value="show-popover">Show Popover</option>
+                            <option value="hide-popover">Hide Popover</option>
+                            <option value="toggle-popover">Toggle Popover</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-sm">
+                        <label for="type" class="form-label">Type</label>
+                        <select class="form-select" id="type" name="type">
+                            <option value="button">Button</option>
+                            <option value="submit">Submit</option>
+                            <option value="reset">Reset</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="mb-3 col-sm">
+                        <label for="name" class="form-label">Name</label>
+                        <input type="text" class="form-control" id="name" name="name">
+                    </div>
+                    <div class="mb-3 col-sm">
+                        <label for="form" class="form-label">Form</label>
+                        <input type="text" class="form-control" id="form" name="form">
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="style" class="form-label">Style (n'hésitez pas à le changer)</label>
+                    <input type="text" class="form-control" id="style" name="style" value="background: linear-gradient(135deg, #6e8efb, #a777e3); color: white; padding: 12px 24px; font-size: 16px; border: none; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);">
+                </div>
+
+                <button type="button" class="btn btn-color btn-sm mb-3" data-bs-toggle="modal" data-bs-target="#attributeModal" data-fieldset="buttonSettings">
+                    + Ajouter un attribut custom
+                </button>
+                
+                <div id="buttonSettingsAttributes"></div>
+            </fieldset>
+
+            <fieldset class="border pt-4 px-4">
+                <legend class="w-auto px-2">Paramètres du lien*</legend>
+                <div class="row">
+                    <div class="mb-3 col-sm">
+                        <label for="hreflang" class="form-label">Reflang</label>
+                        <select class="form-select" id="hreflang" name="hreflang">
+                            <option value="none">None</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-sm">
+                        <label for="rel" class="form-label">Rel</label>
+                        <select class="form-select" id="rel" name="rel">
+                            <option value="none">None</option>
+                            <option value="alternate">Alternate</option>
+                            <option value="author">Author</option>
+                            <option value="bookmark">Bookmark</option>
+                            <option value="external">External</option>
+                            <option value="help">Help</option>
+                            <option value="license">License</option>
+                            <option value="next">Next</option>
+                            <option value="nofollow">Nofollow</option>
+                            <option value="noreferrer">Noreferrer</option>
+                            <option value="noopener">Noopener</option>
+                            <option value="prev">Prev</option>
+                            <option value="search">Search</option>
+                            <option value="tag">Tag</option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-sm">
+                        <label for="target" class="form-label">Target</label>
+                        <select class="form-select" id="target" name="target">
+                            <option value="_blank">_blank</option>
+                            <option value="_self">_self</option>
+                            <option value="_parent">_parent</option>
+                            <option value="_top">_top</option>
+                        </select>
+                    </div>
+                </div>
+                <p><i>(*): l'attribut href n'est pas modifiable pour des raisons de sécurité, merci de bien vouloir le modifier manuellement après-coup.</i></p>
+            </fieldset>
+            <div class="form-check form-switch d-flex justify-content-center mt-4">
+                <input class="form-check-input" type="checkbox" id="autoclick" name="autoclick">
+                <label class="form-check-label ms-2" for="autoclick">Cliquer automatiquement sur le bouton</label>
+            </div>
+            
+            <div class="d-grid gap-2 mt-4">
+                <button type="submit" class="btn btn-color">Générer</button>
+            </div>
+        </form>
+
+        <div class="modal fade" id="attributeModal" tabindex="-1" aria-labelledby="attributeModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="attributeModalLabel">Ajouter un attribut custom</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="customAttributeName" class="form-label">Nom de l'attribut</label>
+                            <input type="text" class="form-control" id="customAttributeName" placeholder="class">
+                        </div>
+                        <div class="mb-3">
+                            <label for="customAttributeValue" class="form-label">Valeur de l'attribut</label>
+                            <input type="text" class="form-control" id="customAttributeValue" placeholder="btn btn-primary">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
+                        <button type="button" class="btn btn-color" id="saveAttribute">Ajouter l'attribut</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if generated %}
+    <hr>
+    <div class="container mt-4">
+        <h5 class="text-center">Voici votre bouton :</h5>
+        <div class="text-center mt-3" id="generated-btn">
+            {{button|safe}}
+        </div>
+        <h6 class="text-center mt-3">Copiez le code ci-dessous:</h6>
+        <pre><code>{{button}}</code></pre>
+    </div>
+    {% endif %}
+    {% if autoclick %}
+        <script src="{{url_for('static', filename='js/autoclick.js')}}" defer nonce="{{nonce}}"></script>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% include 'generic/footer.html' %}

@@ -1,0 +1,59 @@
+name: "Burner Phone"
+author: "Drahoxx"
+category: Misc
+description: |-
+    ![Person Of Interest](https://media1.tenor.com/m/0PtU7ckD1L4AAAAd/person-of-interest-poi.gif)
+    
+    Un homme très dangereux a remarqué que vous le surveilliez. Il s'est débarrassé de son ancien téléphone jetable et en a acheté un nouveau.
+
+    Voici ses trois derniers numéros :
+    - 07.33.89.68.10
+    - 07.33.89.67.24
+    - 07.33.89.12.14
+
+    À vous de trouver son nouveau numéro. Vous disposez des flux de renseignements du FBI (Foutus Bretons Indépendantistes).
+
+    Format du flag : `BZHCTF{<numéro>}`, par exemple pour le numéro `01.23.45.67.89`, le flag sera `BZHCTF{0123456789}`.
+    
+    > **TOUS LES NUMÉROS DE TÉLÉPHONE DE CE CHALLENGE SONT FICTIONNELS**
+
+    Auteur : [Drahoxx](https://x.com/50mgDrahoxx)
+
+
+attribution: 'Auteur : [Drahoxx](https://x.com/50mgDrahoxx)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: burner-phone
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - BZHCTF{0733891373}
+
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+    - Espionnage
+    - Programmation
+
+# Liste des fichiers à fournirs aux joueurs
+files: []
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+requirements: []
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

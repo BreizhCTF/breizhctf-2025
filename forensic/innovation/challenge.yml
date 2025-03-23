@@ -1,0 +1,59 @@
+name: "Innovation"
+author: "Shaym"
+category: Forensic
+description: |-
+    ![gif](https://media1.tenor.com/m/nxLN7-JYZdkAAAAd/evil-laugh-fisher.gif)
+
+    Il y a peu, un collaborateur a été contacté pour tester un nouveau logiciel révolutionnaire !  
+    Tout fier d'avoir été sélectionné pour cette phase de test de ce logiciel révolutionnaire, il s'est empressé de le télécharger.  
+    Cependant, il semblerait que cette innovation ne soit pas sans danger.  
+    Retracez les activités malveillantes de cette innovation et retrouvez les informations exfiltrées.
+
+    Auteur : [Shaym](https://twitter.com/0xShaym)
+
+attribution: 'Auteur : [Shaym](https://twitter.com/0xShaym)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+flags:
+    - BZHCTF{Not_an_innovation_right_?}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+    - Communication
+    - Cipher
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/InnocentCapture.pcapng
+    - files/Innovation.exe
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

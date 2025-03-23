@@ -1,0 +1,7 @@
+services:
+  server:
+    build: .
+    ports:
+      - "1337:1337"
+    restart: unless-stopped
+    privileged: false

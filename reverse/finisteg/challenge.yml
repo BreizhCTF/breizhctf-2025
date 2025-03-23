@@ -1,0 +1,54 @@
+name: "Finisteg"
+author: "Endeavxor"
+category: Reverse
+description: |-
+    ![finisteg](https://i.ibb.co/S4RVWbch/Finisteg.jpg)
+
+    Un APK tombe entre vos mains. Son apparence est banale, mais votre intuition vous dit que quelque chose se cache dedans.
+
+    Auteur : [Endeavxor](#)
+
+attribution: 'Auteur : Endeavxor'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+
+flags:
+    - BZHCTF{4PK_4ND_5tEG4N0_T0_5t4rT}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+    - APK
+    - Reverse
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/finisteg.apk
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

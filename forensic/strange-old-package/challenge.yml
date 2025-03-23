@@ -1,0 +1,58 @@
+name: "Strange Old Package"
+author: "Shaym"
+category: Forensic
+description: |-
+    ![gif](https://media1.tenor.com/m/PTCRHBaTtJsAAAAd/amazon-delivery.gif)
+
+    Il y a peu, un collaborateur s'est plaint de crashs répétés de sa machine.  
+    Il a donc tenté de mettre à jour certains paquets Windows lui-même en les téléchargeant directement depuis Internet.  
+    Malheureusement pour lui, la nouvelle version de l'utilitaire téléchargé ne semble pas légitime.  
+    Retracez les activités malveillantes de l'utilitaire téléchargé à travers les logs de l'utilisateur.
+
+    Auteur : [Shaym](https://twitter.com/0xShaym)
+
+
+attribution: 'Auteur : [Shaym](https://twitter.com/0xShaym)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+flags:
+    - BZHCTF{Is_this_file_format_still_used_today?!}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Difficile
+    - Windows investigation
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/filesystem_extract.zip
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

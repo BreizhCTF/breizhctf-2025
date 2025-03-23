@@ -1,0 +1,7 @@
+FROM python:3.8.20-bookworm
+
+RUN pip install pyinstaller pygame Crypto pycryptodome
+
+COPY game.py /
+
+RUN pyinstaller -D /game.py

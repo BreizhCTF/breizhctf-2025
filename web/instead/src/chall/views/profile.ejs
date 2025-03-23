@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mon Profil - Instead</title>
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    .profile-card { max-width: 600px; margin: 20px auto; }
+    .profile-img { width: 150px; height: 150px; object-fit: cover; border-radius: 50%; margin-bottom: 15px; }
+    .cv-preview-thumbnail { width: 100%; max-width: 300px; height: auto; border: 1px solid #ccc; display: block; margin: 0 auto; cursor: pointer; }
+    .profile-selection img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border: 2px solid transparent;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: border 0.2s;
+      max-width: 100px;
+      max-height: 100px;
+    }
+    .profile-selection img.selected {
+      border-color: #0d6efd;
+    }
+  </style>
+</head>
+<body>
+  <%- include('navbar', { user: user }) %>
+  <div class="container">
+    <div class="card profile-card">
+      <div class="card-body text-center">
+        <img src="<%= user.profilePicture %>" alt="Photo de profil" class="profile-img" data-bs-toggle="modal" data-bs-target="#profilePicModal">
+        <small class="text-muted d-block text-center mt-2">Cliquez sur l'image pour changer votre photo de profil</small>
+        <h3 class="card-title"><%= user.username %></h3>
+        <p class="card-text"><strong>Rôle :</strong> <%= user.role %></p>
+        <hr>
+        <% if (cv) { %>
+          <div class="mb-3">
+            <h5>Prévisualisation du CV</h5>
+            <object data="/cv/<%= cv.id %>" type="image/svg+xml" class="cv-preview-thumbnail" data-bs-toggle="modal" data-bs-target="#cvModal">
+              Votre navigateur ne supporte pas la prévisualisation du CV.
+            </object>
+            <button class="btn btn-outline-secondary btn-sm mt-2" data-bs-toggle="modal" data-bs-target="#cvModal">
+              Agrandir la prévisualisation
+            </button>
+          </div>
+          <div class="mb-3">
+            <form action="/cv/<%= cv.id %>/delete" method="POST">
+              <button type="submit" class="btn btn-danger">Supprimer le CV</button>
+            </form>
+          </div>
+          <hr>
+        <% } %>
+        <div class="mb-3">
+          <h5>Uploader un CV (PDF uniquement)</h5>
+          <form action="/cv/upload" method="POST" enctype="multipart/form-data">
+            <div class="mb-3">
+              <input type="file" name="cv" accept="application/pdf" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Uploader</button>
+          </form>
+        </div>
+        <hr>
+        <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#resetPasswordModal">Réinitialiser le mot de passe</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal pour la sélection d'image de profil -->
+  <div class="modal fade" id="profilePicModal" tabindex="-1" aria-labelledby="profilePicModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form action="/profile/changePfP" method="POST">
+          <div class="modal-header">
+            <h5 class="modal-title" id="profilePicModalLabel">Choisissez votre nouvelle image de profil</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+          </div>
+          <div class="modal-body">
+            <div class="d-flex justify-content-center gap-3 profile-selection">
+              <% availableProfiles.forEach(function(img) { %>
+                <label>
+                  <img src="<%= img %>" alt="Image de profil" data-url="<%= img %>">
+                  <input type="radio" name="profilePicture" value="<%= img %>" class="d-none">
+                </label>
+              <% }); %>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal pour réinitialiser le mot de passe -->
+  <div class="modal fade" id="resetPasswordModal" tabindex="-1" aria-labelledby="resetPasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <form action="/profile/reset-password" method="POST">
+          <div class="modal-header">
+            <h5 class="modal-title" id="resetPasswordModalLabel">Réinitialiser le mot de passe</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3">
+              <input type="password" name="newPassword" class="form-control" placeholder="Nouveau mot de passe" required>
+            </div>
+            <div class="mb-3">
+              <input type="text" name="resetToken" class="form-control" placeholder="Entrez votre token de réinitialisation" required>
+              <small class="text-muted">Le token est valable 5 minutes.</small>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+            <button type="submit" class="btn btn-warning">Valider</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Modal pour agrandir la prévisualisation du CV -->
+  <div class="modal fade" id="cvModal" tabindex="-1" aria-labelledby="cvModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="cvModalLabel">Prévisualisation du CV</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fermer"></button>
+        </div>
+        <div class="modal-body">
+          <object data="/cv/<%= cv ? cv.id : '' %>" type="image/svg+xml" style="width: 100%; height: 70vh;">
+            Votre navigateur ne supporte pas la prévisualisation du CV.
+          </object>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

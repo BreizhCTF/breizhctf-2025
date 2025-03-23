@@ -1,0 +1,65 @@
+name: "PHP Guru"
+author: "Mika"
+category: Web
+description: |-
+    ![Guru](https://media1.tenor.com/m/izcwFxB7EikAAAAd/yoda-star-wars.gif)
+
+    Votre ami est un véritable gourou du PHP, il ne jure que par ce langage d'exception ! Cependant, il est bien conscient que PHP possède certaines petites, spécificités (c'est ainsi qu'il aime les appeler, pour ne pas dire erreurs de conceptions, PHP n'est tout de même pas JavaScript)... C'est pourquoi il a créé une plateforme pour ses amis, permettant des les éduquer et de renforcer leurs connaissances en PHP afin qu'ils pusisent sécuriser leurs propres applicatifs. Dans sa grande bonté, le gourou vous a fourni le code source de l'application, selon lui le "guessing" en web n'est plus drôle du tout. Voulez-vous vous prêter à son jeu ? Si vous remportez l'épreuve, un "drapeau", vous sera offert.
+
+    > Ce challenge dispose d'un accès à internet.
+
+    Auteur : [Mika](https://x.com/bWlrYQ)
+
+
+attribution: 'Auteur : [Mika](https://x.com/bWlrYQ)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: phpguru
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+flags:
+    - BZHCTF{PHP_1s_C00l_If_YoU_Kn0w_ITZ_SeCrEtZ!}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Difficile
+    - PHP
+    - Whitebox
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/phpguru.zip
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+#requirements:
+#    - "Warmup"
+#    - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

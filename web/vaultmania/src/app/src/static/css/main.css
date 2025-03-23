@@ -1,0 +1,35 @@
+@font-face {
+    font-family: 'Galvanizer';
+    src: url('../fonts/Galvanizer-Regular.ttf') format('truetype');
+}
+
+body{
+    font-family: 'Galvanizer', sans-serif !important;
+    color: #ead8f2;
+    background-color: #1d1e20;
+}
+
+#logo {
+    width: 90px;
+}
+
+#vault {
+    width: 50%;
+}
+
+#pinCode, #pinCodeCreate {
+    width: 50%; 
+    font-size: 1.5rem;
+}
+
+#pinPad, #pinPadCreate {
+    width: 210px; 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    grid-gap: 5px;
+}
+
+#linkDelete {
+    text-decoration: none; 
+    color: white;
+}

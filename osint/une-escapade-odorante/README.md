@@ -1,0 +1,3 @@
+L’individu qui suit Eduardo s’est récemment échappé d’une prison judiciaire, et il semblerait qu’il ait volé un avion proche de la ville où il était retenu. L’évasion du prisonnier s’est faite en bateau, et il se serait arrêté près d’une écluse non loin du site du vol de l’appareil.
+Trouvez le modèle de l’avion, le numéro de série de l’appareil ayant été volé, et le nom de l’écluse qui a stoppé l’individu.
+Le flag est au format `BZHCTF{A.380_999_Glatens}`.

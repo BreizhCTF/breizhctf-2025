@@ -1,0 +1,35 @@
+{% include 'generic/head.html' %}
+
+{% block content %}
+<div class="container-fluid w-50 mx-auto mt-2 mb-5">
+    <div class="container">
+        <h2 class="text-center">Vous avez trouvé une vulnérabilité?</h2>
+        <h4 class="text-center">Signalez-là nous et nous la vérifierons aussi vite que possible!</h4>
+        {% if error %}
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{error}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        {% if success %}
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            {{success}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endif %}
+        <form method="POST" action="{{url_for('report')}}" class="">
+            <fieldset class="border p-4">
+                <legend class="w-auto px-2">Signaler</legend>
+                <div class="mb-3">
+                    <label for="url" class="form-label">URL</label>
+                    <input type="text" class="form-control" id="url" name="url" placeholder="/designer?example=true" required>
+                </div>
+                <button type="submit" class="btn btn-color">Envoyer</button>
+            </fieldset>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
+
+{% include 'generic/footer.html' %}

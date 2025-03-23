@@ -1,0 +1,17 @@
+{% include 'generic/head.html' %}
+
+{% block content %}
+<div class="container-fluid text-center w-50 mx-auto mt-5">
+    <p><b>Designer</b> est un projet simple qui vous permet de créer des boutons esthétiques avec des liens intégrés directement dans votre navigateur,
+    plus besoin de vous embarrasser de CSS ! Nous sommes un projet entièrement libre avec une équipe dédiée à chaque domaine important, design et ui, back-end, sécurité...</p>
+
+    <p>En utilisant <b>Designer</b>,vous pouvez avoir un bouton fonctionnel en quelques secondes, qu'il vous suffira d'importer dans votre code.
+    Il suffit de sélectionner les propriétés dont vous avez besoin, d'ajouter des attributs supplémentaires si nécessaire et c'est parti ! 
+    Visitez la page <a class="hyperlink" href="{{url_for('designer')}}">do it yourself</a> afin de tester notre produit.
+
+    <p>Oh, et au fait ! Nous avons oublié la partie la plus importante. La sécurité des utilisateurs est l'une de nos plus grandes préoccupations. 
+    Si vous trouvez une vulnérabilité (même mineure, qui laisserait échapper une chose simple, comme l'adresse IP ou l'user-agent d'un utilisateur), n'hésitez pas à nous contacter <a class="hyperlink" href="{{url_for('report')}}">ici</a></p>
+</div>
+{% endblock %}
+
+{% include 'generic/footer.html' %}

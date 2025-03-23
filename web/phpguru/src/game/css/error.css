@@ -1,0 +1,127 @@
+
+@font-face {
+    font-family: 'TT-Commons';
+    src: url('../fonts/TT-Commons.ttf') format('truetype');
+}
+
+body {
+    font-family: 'TT-Commons', sans-serif !important;
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    place-items: center; 
+    min-height: 100vh;
+    text-align: center;
+    margin: 0;
+    display: grid;
+}
+
+.error-container {
+    background: #ffffff;
+    border-radius: 1rem;
+    padding: 2rem;
+    max-width: 50%;
+    width: 100%;
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 0.8s ease-in-out;
+}
+
+@media (max-width: 1024px) {
+    .error-container {
+        max-width: 60%;
+        padding: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .error-container {
+        max-width: 80%;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .error-container {
+        max-width: 90%;
+        padding: 1rem;
+    }
+}
+
+h1 {
+    font-size: 2rem;
+    color: #d9534f;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: #ff5f5f;
+}
+
+.error-details {
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    text-align: left;
+    overflow-x: auto;
+    max-height: 50vh;
+    font-size: 1rem;
+    font-family: 'Courier New', monospace;
+}
+
+@media (max-width: 768px) {
+    .error-details {
+        font-size: 0.9rem;
+        padding: 0.75rem;
+        max-height: 40vh;
+    }
+}
+
+@media (max-width: 576px) {
+    .error-details {
+        font-size: 0.85rem;
+        padding: 0.5rem;
+        max-height: 35vh;
+    }
+}
+
+.error-btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: white;
+    background: #d9534f;
+    border: none;
+    border-radius: 1.5rem;
+    transition: all 0.3s ease-in-out;
+    text-decoration: none;
+}
+
+.error-btn:hover {
+    background: #b52b27;
+    box-shadow: 0 0.25rem 0.75rem rgba(217, 83, 79, 0.3);
+}
+
+@media (max-width: 768px) {
+    .error-btn {
+        font-size: 1rem;
+        padding: 0.65rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .error-btn {
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(5%);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

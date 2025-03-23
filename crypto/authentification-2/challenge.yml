@@ -1,0 +1,66 @@
+name: "AutHentification, le retour !"
+author: "skilo"
+category: Crypto
+description: |-
+  ![meme-auth-weak](https://media1.tenor.com/m/rED5BIgCcg4AAAAd/closing-lots-of-doors-cartoon-closing-door.gif)
+
+  Mince, j'avais oublié de vérifier l'authenticité...
+  Heureusement que le stagiaire m'a fait la remarque, il est vraiment parfait ! 😁
+
+  Auteur : [skilo](https://x.com/skilo_sh)
+
+
+attribution: 'Auteur : [skilo](https://x.com/skilo_sh)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: authentification-2
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+
+flags:
+    - BZHCTF{encore_et_toujours_de_la_faute_du_stagiaire_350cd55e8bf628ea}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Difficile
+    - AES-GCM
+    - Crypto
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/authentification_le_retour.zip
+    - files/template_authentification_le_retour.py
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+#requirements:
+#    - "Warmup"
+#    - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

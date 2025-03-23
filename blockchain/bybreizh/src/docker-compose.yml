@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  website:
+    build:
+      context: ./website
+      dockerfile: website.Dockerfile
+    ports:
+      - "9001:80"
+    restart: unless-stopped
+
+  blockchain:
+    build:
+      context: ./blockchain
+      dockerfile: Dockerfile
+    ports:
+      - "9000:9000"
+    restart: unless-stopped

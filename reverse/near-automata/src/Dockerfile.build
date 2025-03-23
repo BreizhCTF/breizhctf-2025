@@ -1,0 +1,10 @@
+FROM debian:bookworm
+
+RUN apt-get update && apt-get install -y build-essential
+
+COPY . /
+
+RUN gcc /near_automata.c /biguint128.c /uint.c /intio.c -o /near_automata && strip -s /near_automata
+
+# Lancer le conteneur et laisser tourner
+CMD ["tail", "-f", "/dev/null"]

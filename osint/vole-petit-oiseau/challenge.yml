@@ -1,0 +1,47 @@
+name: "Vole petit oiseau"
+author: "Daeras"
+category: OSINT
+description: |-
+    ![Cat](https://media1.tenor.com/m/-5rS9QN1EQkAAAAd/cute-cat.gif)
+
+    L’individu qui suit Eduardo s’est récemment échappé d’une prison judiciaire, et il semblerait qu’il ait volé un avion proche de la ville où il était retenu. L’évasion du prisonnier s’est faite en bateau, et il se serait arrêté près d’une écluse non loin de l'endroit où l’appareil a été volé.
+    Trouvez le modèle de l’avion, le numéro de série de l’appareil ayant été volé, et le nom de l’écluse qui a stoppé l’individu.
+
+    Le flag est au format `BZHCTF{A.380_999_Glatens}`.
+
+    Auteur : [Daeras](#)
+
+
+attribution: 'Auteur : [Daeras](#)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - BZHCTF{DH.100_624_Cumont}
+    - BZHCTF{DH.100_624_cumont}
+    - BZHCTF{DH100_624_Cumont}
+    - BZHCTF{DH100_624_cumont}
+    - BZHCTF{DH-100_624_Cumont}
+    - BZHCTF{DH-100_624_cumont}
+
+files: 
+    - files/Rapport_Police.pdf
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Difficile
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"
+

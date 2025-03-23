@@ -1,0 +1,42 @@
+name: "Libérez-moi !"
+author: "Daeras"
+category: OSINT
+description: |-
+    ![Cat](https://media1.tenor.com/m/s-4kvwARd0cAAAAd/garfield-sad.gif)
+
+    Florian vient de recevoir une vidéo de la police nationale, Eduardo est retenu contre son gré près de votre position actuelle.
+    Libérez-le !
+
+    > Ce challenge nécessite d’aller voir les challmakers pour sa résolution.
+
+    Auteur : [Daeras](#)
+
+
+attribution: 'Auteur : [Daeras](#)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - BZHCTF{N14mb4l4ng_w4s_4n_1ns1d3_j0b}
+
+files: 
+    - files/ransom.mp4
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"
+

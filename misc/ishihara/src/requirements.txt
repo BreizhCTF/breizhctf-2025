@@ -1,0 +1,6 @@
+argparse
+pillow
+scipy
+numpy
+colorlog
+tqdm

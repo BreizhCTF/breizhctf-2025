@@ -1,0 +1,161 @@
+# Runs an anvil blockchain as well as a Flask application
+
+import subprocess
+from os import environ
+from eth_account.hdaccount import generate_mnemonic
+from eth_account import Account
+from flask import Flask, Response, request, abort, render_template
+import requests
+from web3 import Web3
+from time import sleep
+from re import findall
+
+FLAG = "BZHCTF{N0rm4nd1e_1sn-t_Str0ng_3n0ugh}"
+RPC_URL = "http://127.0.0.1:8545"
+FORK_URL = "https://eth.llamarpc.com"
+PLAYER_ADDRESS = "0xa24b3f601C29a9d26af5C151D172ea716a23dF1c"
+PLAYER_KEY = "0x3da2b9f371d75f03e91bbbeb1da81fac34721d71a2b12bd1ae547426a4b4f559"
+PLAYER_ETH = "1"
+BIN = "/challenge/.foundry/bin/"
+
+Account.enable_unaudited_hdwallet_features()
+
+mnemonic = "want drift busy style regular west exchange mass zebra guilt stuff ceiling rare poet music jealous amount table trial next ski nature tuna food"
+
+deployer_account = Account.from_mnemonic(mnemonic, account_path=f"m/44'/60'/0'/0/0")
+deployer_key = deployer_account._private_key.hex()
+deployer_address = deployer_account.address
+
+contracts = {}
+
+# Runs an anvil in the background
+proc = subprocess.Popen(
+    args=[
+        f"{BIN}/anvil",
+        "--accounts",
+        "1",
+        "--balance",
+        "1000",
+        "--mnemonic",
+        mnemonic,
+        "--chain-id",
+        "1337",
+    ],
+)
+
+# If fork URL needed, comment the above and un-comment the below
+# proc = subprocess.Popen(
+#     args=[
+#         f'{BIN}/anvil',
+#         '--accounts',
+#         '1',
+#         '--balance',
+#         '1000',
+#         '--fork-url',
+#         FORK_URL,
+#         '--mnemonic',
+#         mnemonic,
+#         '--chain-id',
+#         '1337'
+#     ],
+# )
+
+web3 = Web3(Web3.HTTPProvider(RPC_URL))
+while True:
+    if proc.poll() is not None:
+        exit(1)
+    if web3.is_connected():
+        break
+    sleep(0.1)
+
+# Deploys the challenge
+deployer = subprocess.run(
+    [
+        f"{BIN}/forge",
+        "script",
+        "./script/Deploy.s.sol",
+        "--broadcast",
+        "--rpc-url",
+        RPC_URL,
+        "--private-key",
+        deployer_key,
+    ],
+    stdout=subprocess.PIPE,
+    cwd="/challenge/blockchain",
+)
+
+result = deployer.stdout.decode()
+print(result)
+contracts["Challenge"] = findall("Challenge deployed at : (.*)", result)[0]
+
+# Gives ETH from the Deployer to the Player
+faucet = subprocess.Popen(
+    args=[
+        f"{BIN}/cast",
+        "send",
+        PLAYER_ADDRESS,
+        "--value",
+        PLAYER_ETH + "ether",
+        "--rpc-url",
+        RPC_URL,
+        "--private-key",
+        deployer_key,
+    ],
+)
+
+app = Flask(__name__)
+
+ALLOWED_NAMESPACES = ["web3", "eth", "net"]
+
+
+@app.route("/")
+def index():
+    return render_template(
+        "index.html",
+        key=PLAYER_KEY,
+        address=PLAYER_ADDRESS,
+        challenge=contracts["Challenge"],
+    )
+
+
+# proxies requests to the blockchain after parsing it
+@app.route("/rpc", methods=["POST"])
+def rpc():
+    body = request.get_json()
+
+    allowed = (
+        any(body["method"].startswith(namespace) for namespace in ALLOWED_NAMESPACES)
+        and body["method"] != "eth_sendUnsignedTransaction"
+    )
+
+    if allowed:
+        resp = requests.post(RPC_URL, json=body)
+        response = Response(resp.content, resp.status_code, resp.raw.headers.items())
+        return response
+
+    abort(403)
+
+
+@app.route("/flag")
+def flag():
+    solve_proc = subprocess.run(
+        [
+            f"{BIN}/cast",
+            "call",
+            contracts["Challenge"],
+            "isSolved()(bool)",
+            "--rpc-url",
+            RPC_URL,
+        ],
+        stdout=subprocess.PIPE,
+    )
+    is_solved = solve_proc.stdout.decode().strip()
+
+    if is_solved == "true":
+        return FLAG
+    else:
+        return "Try again..."
+
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port="9000")

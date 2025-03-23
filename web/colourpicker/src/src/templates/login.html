@@ -1,0 +1,37 @@
+{% include 'generic/head.html' %}
+
+{% block content %}
+<div class="login-container mt-5">
+    <h4 class="text-center mb-4">Se connecter</h4>
+    {% if error %}
+        <div class="alert alert-danger" role="alert">
+            {{error}}
+        </div>
+    {% endif %}
+    {% if success %}
+        <div class="alert alert-success" role="alert">
+            {{success}}
+        </div>
+    {% endif %}
+    <form action="/login" method="POST">
+        <div class="mb-3">
+            <label for="username" class="form-label">Nom d'utilisateur</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+
+        <div class="mb-3">
+            <label for="password" class="form-label">Mot de passe</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+        </div>
+
+        <div class="form-check form-switch mb-3">
+            <input class="form-check-input" type="checkbox" id="registerToggle" name="register">
+            <label class="form-check-label" for="registerToggle">S'enregistrer en tant que nouvel utilisateur</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Envoyer</button>
+    </form>
+</div>
+{% endblock %}
+
+{% include 'generic/footer.html' %}

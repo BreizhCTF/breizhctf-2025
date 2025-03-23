@@ -1,0 +1,50 @@
+name: "Un homme occupé"
+author: "Paudou"
+category: OSINT
+description: |-
+    ![Cat](https://media.tenor.com/ww0fxAZjDwEAAAAi/busy-stressed.gif)
+
+    Pendant que vous faisiez des recherches sur le mystérieux événement, Florian aussi s’est mis au travail, et s’est souvenu qu’il avait écrit une note dans son téléphone la veille.
+    
+    Trouvez avec qui l’homme dont vous a parlé Florian avait rendez-vous, et où !
+
+    Le flag est au format `BZHCTF{Prénom_Nom_Lieu}`
+
+    Auteur : [Paudou](#)
+
+
+attribution: 'Auteur : [Paudou](#)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - BZHCTF{Eglantine_Guédry_Church}
+    - BZHCTF{Eglantine_Guédry_CHURCH}
+    - BZHCTF{EGLANTINE_GUÉDRY_CHURCH}
+    - BZHCTF{eglantine_guédry_church}
+    - BZHCTF{Eglantine_Guedry_Church}
+    - BZHCTF{Eglantine_Guedry_CHURCH}
+    - BZHCTF{EGLANTINE_GUEDRY_CHURCH}
+    - BZHCTF{eglantine_guedry_church}
+
+files: 
+    - files/Screenshot_20250120_190809_Samsung_Notes.png
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"
+

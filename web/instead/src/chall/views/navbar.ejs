@@ -1,0 +1,40 @@
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #003366;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/home">
+        <img src="/static/img/logo_navbar.png" alt="Logo" height="60" class="me-2">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" 
+              aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <form class="d-flex mx-auto" method="GET" action="/search">
+          <input class="form-control me-2" type="search" name="query" placeholder="Rechercher" aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Rechercher</button>
+        </form>
+        <ul class="navbar-nav">
+          <% if (user) { %>
+            <% if (user.role === "administrator") { %>
+              <li class="nav-item d-flex align-items-center">
+                <a class="nav-link text-white" href="/admin/dashboard">Admin panel</a>
+              </li>
+            <% } %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="userMenu" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="<%= user.profilePicture %>" alt="Profil" height="40" class="rounded-circle me-2">
+                <%= user.username %>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userMenu">
+                <li><a class="dropdown-item" href="/profile">Mon Profil</a></li>
+                <li><a class="dropdown-item" href="/logout">Déconnexion</a></li>
+              </ul>
+            </li>
+          <% } else { %>
+            <li class="nav-item">
+              <a class="nav-link" href="/">Connexion</a>
+            </li>
+          <% } %>
+        </ul>
+      </div>
+    </div>
+  </nav>  

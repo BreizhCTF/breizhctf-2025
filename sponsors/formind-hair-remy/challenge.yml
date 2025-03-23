@@ -1,0 +1,59 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# Required sections
+name: "Formind - Hair Rémy" # nom du challenge. Proposition : Chaque entreprise peut s'afficher ici. Si jamais plusieurs challenge : "VOTRE ENTREPRISE - 1" / "VOTRE ENTREPRISE - 2". )"
+author: "darkpills" # nom du créateur du challenge
+category: Sponsors # ne pas toucher 
+description: |-
+    ![formind](https://cdn.prod.website-files.com/60af4493c2abd6738966f63e/6475c4ee0a57c5abe1dd3b2a_formind.png)
+
+    "Hair Rémy" est un agent IA capable de vous dire si votre coupe de cheveux vous va ou pas ! 
+    Pour cela, rien de plus simple : prenez-vous en photo et envoyez là à l'agent qui vous donnera la réponse. 
+
+    Vous vous demandez comment cela fonctionne ? 
+    Tout le secret réside dans les données d'apprentissage stockées sur le serveur. 
+    Mais, le secret est bien gardé. Chez nous, la sécurité c'est pas MD'Hair ;-)
+
+    Questions / problèmes : [darkpills#0070](#) - https://discord.com/channels/958405478872920166/1348552335860957217
+
+    Auteur : Formind - darkpills
+
+attribution: 'Auteur : Formind - darkpills'
+
+type: dynamic # ne pas toucher
+#  Les challenges sponsors ne seront pas hébergés sur l'infrastructure du breizhctf (le lien vers vos challenges sera mis à dispo))
+connection_info: https://hair-remy.formind.fr/ # un lien que vous gérez, pas sur l'infra du breizhctf. C'est généralement soit le challenge (web par ex) ou un fichier à récupérer sur une URL vous appartenant
+
+
+# Points # ne pas toucher : système de notation dynamique
+# plus un challenge est résolu, moins il vaudra de points.
+
+value: 500
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+# Optional settings
+
+flags: # Modifier "Flag" mais garder impérativement BZHCTF{}. Doit respecter la syntaxe BZHCTF{...}
+    - BZHCTF{HairRemyJustSaidNoPeigneNoGain}
+
+# Topics are used to help tell what techniques/information a challenge involves
+# La variable "topics" n'est visible que des administrateurs (permet d'avoir des indications rapides sur la solution du challenge).
+# Accepts strings
+topics:
+    - Android
+    - RMI
+    - Deserialization
+
+# Vous pouvez inclure des tag comme le type de chall (web, crypto, ...) et la difficulté estimée ((Très Facile, Facile, Moyen, Difficile, Très Difficile))
+tags:
+    - Moyen
+    - Mobile
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"

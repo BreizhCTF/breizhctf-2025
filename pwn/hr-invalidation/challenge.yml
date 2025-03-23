@@ -1,0 +1,64 @@
+name: "HR Invalidation"
+author: "Tek"
+category: Pwn
+description: |-
+    ![cpp](https://media1.tenor.com/m/1JHU1Q0mUlcAAAAd/he-was-forced-cpp.gif)
+
+    J'ai créé une application en C++ pour les ressources humaines.
+    J'espère qu'il n'y a aucun bug.
+
+    Auteur : [Tek](#)
+
+
+attribution: 'Auteur : Tek'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: hr-invalidation
+    initial: 500
+    decay: 100
+    minimum: 50
+
+# Pour les challenge à la demande uniquement
+# À remplir par un sysadmin
+# template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+flags:
+    - BZHCTF{iterator_invalidation_are_cool_bugs_always_read_the_docs_0666e80a71a1513c}
+
+# Les topics ne sont visibles que par les admins
+topics:
+    - gestion d'employés
+    - iterator/reference invalidation
+    - fonction get_flag
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Moyen
+    - C++
+    - Pwn
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/hr_invalidation.zip
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+# requirements:
+#     - "Warmup"
+#     - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

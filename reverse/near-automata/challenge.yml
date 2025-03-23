@@ -1,0 +1,58 @@
+name: "Near Automata"
+author: "NineLine"
+category: Reverse
+description: |-
+    ![automata](https://media1.tenor.com/m/2adNPNi_J4QAAAAd/nier-automata.gif)
+
+    Des scientifiques s'essayent à créer la vie artificielle.
+    Effectivement, leur programme semble avoir une conscience...
+    
+    Saurez-vous parvenir à percer les mystères de leur création ?
+
+    Auteur : [NineLine](#)
+
+
+attribution: 'Auteur : NineLine'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+#connection_info: nc exemple-tcp.chall.ctf.bzh 1337
+
+flags:
+    - BZHCTF{It_4lW4y5_3nd5_l1k3_th15}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Difficile
+    - Reverse
+    - ELF
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/near_automata
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

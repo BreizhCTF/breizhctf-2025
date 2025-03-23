@@ -1,0 +1,58 @@
+name: "Ride the pow"
+author: "Drahoxx"
+category: Misc
+description: |-
+    ![red panda neige](https://media1.tenor.com/m/9rI7qpux1bYAAAAC/redpanda-red.gif)
+    
+    T'es en pleine discussion avec ton collègue, il te raconte qu'il a passé l'hiver à rider la pow dans les Alpes 🎿. Naturellement, tu lui demandes son spot. Il te dit qu'il va te montrer les photos. Il sort sa clé USB, prêt à te faire rêver... mais voilà, à peine branchée, il reçoit un appel urgent et doit partir fissa. Pas de souci, t’as l’esprit vif. Tu trouveras la station tout seul. 🏔️
+
+    Format du flag : `BZHCTF{station_de_ski}`, en minuscule, les espaces sont remplacés par des `_`, pas d'accents.
+    
+    > Ceci n'est pas un challenge d'OSINT
+
+    Auteur : [Drahoxx](https://x.com/50mgDrahoxx)
+
+
+attribution: 'Auteur : [Drahoxx](https://x.com/50mgDrahoxx)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - BZHCTF{vars}
+    - BZHCTF{vars_la_foret_blanche}
+    - BZHCTF{vars_sainte_marie}
+    - BZHCTF{vars_st_marie}
+    - BZHCTF{Vars}
+    - BZHCTF{sainte_marie}
+    - BZHCTF{la_foret_blanche_sainte_marie}
+    - BZHCTF{la_foret_blanche}
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Très Facile
+    - Metadata
+    - Ski
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+  - "files/powpow.jpg"
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+requirements: []
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

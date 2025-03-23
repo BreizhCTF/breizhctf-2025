@@ -1,0 +1,53 @@
+# This file represents the base specification of your challenge. It is used by
+# other tools to install and deploy your challenge.
+
+# Required sections
+name: "Inria - PirHack 1/2" # nom du challenge. Proposition : Chaque entreprise peut s'afficher ici. Si jamais plusieurs challenge : "VOTRE ENTREPRISE - 1" / "VOTRE ENTREPRISE - 2". )"
+author: "PIRAT\\');" # nom du créateur du challenge
+category: Sponsors # ne pas toucher 
+description: |-
+  ![inria](https://inria.fr/themes/custom/inria/logo/logo.svg)
+
+  Dans cette épreuve, vous êtes un brigand sans amarre à la solde du plus offrant.
+  Votre objectif est de mettre la main sur le trésor de l'équipage des PIRHACK.
+
+  Question ? https://discord.com/channels/958405478872920166/1348552083443417140
+
+  Auteur : Inria - PIRAT\\');
+
+
+attribution: "Auteur : Inria - PIRAT\\');"
+
+type: dynamic # ne pas toucher
+#  Les challenges sponsors ne seront pas hébergés sur l'infrastructure du breizhctf (le lien vers vos challenges sera mis à dispo))
+connection_info: "Une mystérieuse carte au trésor est distribuée aux équipes en début de CTF." # Todo un lien que vous gérez, pas sur l'infra du breizhctf.
+
+value: 500
+
+# Points # ne pas toucher : système de notation dynamique
+# plus un challenge est résolu, moins il vaudra de points.
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+# Optional settings
+
+flags:
+    - BZHCTF{L@Meduse-1s-c0mpromised}
+
+# Topics are used to help tell what techniques/information a challenge involves
+# La variable "topics" n'est visible que des administrateurs (permet d'avoir des indications rapides sur la solution du challenge).
+# Accepts strings
+topics:
+    - Pentest
+
+# Vous pouvez inclure des tag comme le type de chall (web, crypto, ...) et la difficulté estimée ((Très Facile, Facile, Moyen, Difficile, Très Difficile))
+tags:
+    - Moyen
+    - Pentest
+    - Web
+
+# Specifies what version of the challenge specification was used.
+# Subject to change until ctfcli v1.0.0
+version: "0.1"

@@ -1,0 +1,67 @@
+name: "Mystical Angel"
+author: "K.L.M"
+category: Blockchain
+description: |-
+  ![Angel](https://media1.tenor.com/m/ORBXgndZRuEAAAAC/abstract-angel.gif)
+
+  Lors de votre périple, vous rencontrez un ange numérique qui vous propose des bénédictions à condition que vous trouvez à quel chiffre l'ange pense. 
+  
+  Après 10 bénédictions, vous pourrez vous élever et atteindre les sommets du paradis. Malheureusement, si vous échouez une fois, votre compteur se remet à 0. 
+  
+  Trouvez une moyen de gagner ces 10 bénédictions.
+
+  Auteur : [K.L.M](#)
+
+
+attribution: 'Auteur : K.L.M'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: mystical-angel
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+
+flags:
+    - BZHCTF{Ascended_L1k3_4_Mystical_Angel}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+    - Blockchain
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/Challenge.sol
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+#requirements:
+#    - "Warmup"
+#    - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

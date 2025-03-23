@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instead</title>
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    .profile-card { max-width: 600px; margin: 20px auto; }
+    .profile-img { width: 150px; height: 150px; object-fit: cover; border-radius: 50%; margin-bottom: 15px; }
+    .stats { margin-bottom: 20px; }
+    .post-card { margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <%- include('navbar'), { user: user } %>
+  <div class="container">
+    <div class="card profile-card">
+      <div class="card-body text-center">
+        <img src="<%= Profileuser.profilePicture %>" alt="Photo de profil" class="profile-img">
+        <h3 class="card-title"><%= Profileuser.username %></h3>
+        <p class="card-text"><strong>Rôle :</strong> <%= Profileuser.role %></p>
+        <div class="stats">
+          <span class="badge bg-primary">Posts: <%= postCount %></span>
+          <span class="badge bg-secondary">Commentaires: <%= commentCount %></span>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mb-4">
+      <form action="/user/report/<%= Profileuser.id %>" method="GET">
+        <button type="submit" class="btn btn-danger">Signaler</button>
+      </form>
+    </div>
+    <div class="mt-4">
+      <h4 class="mb-3">Posts</h4>
+      <% if (posts && posts.length > 0) { %>
+        <% posts.forEach(post => { %>
+          <div class="card post-card">
+            <div class="card-body">
+              <h5 class="card-title"><%= post.title %></h5>
+              <p class="card-text"><%= post.content %></p>
+              <small class="text-muted">
+                Publié le <%= new Date(post.createdAt).toLocaleDateString("fr-FR") %> à <%= new Date(post.createdAt).toLocaleTimeString("fr-FR") %>
+              </small>
+            </div>
+          </div>
+        <% }); %>
+      <% } else { %>
+        <p class="text-muted">Aucun post pour l'instant.</p>
+      <% } %>
+    </div>
+  </div>
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

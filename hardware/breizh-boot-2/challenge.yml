@@ -1,0 +1,46 @@
+name: "BreizhBoot (2/3)"
+author: "Drahoxx"
+category: Hardware
+description: |-
+    ![imgupdt](https://gifdb.com/images/high/boy-hitting-another-boy-on-laptop-update-xfak2zwfvnfefzgc.gif)
+    
+    Vous avez récupéré l'accès à une puce RISC-V qui est connectée à deux disques. Le premier disque est accessible et contient une fitImage. À l'aide de vos sondes, vous êtes en mesure de le réécrire aisément. L'autre disque est totalement innaccessible.
+    À vous d'accéder au contenu du second disque en démarrant une image linux customisé tout en contournant le secure-boot mis en place !
+
+    > Lisez le README.md pour comprendre le setup et le challenge :)
+
+    Auteur : [Drahoxx](https://x.com/50mgDrahoxx)
+
+    
+attribution: 'Auteur : [Drahoxx](https://x.com/50mgDrahoxx)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: breizh-boot-2
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - BZHCTF{Upd4t3s_4r3_p4rt_0f_Th3_S3cur3B00t_Pr0c3ss}
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Moyen
+    - Bootloader
+    - Secure-Boot
+
+# Liste des fichiers à fournirs aux joueurs
+files: 
+  - "files/breizh_boot_2.tar.gz"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"
+

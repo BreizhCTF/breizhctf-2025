@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Instead - Home</title>
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body { background-color: #f4f7fa; }
+    .post-card { margin-bottom: 20px; }
+    .post-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .post-header img { width: 50px; height: 50px; border-radius: 50%; }
+    .post-actions { display: flex; justify-content: space-around; margin-top: 10px; }
+    .new-post-card { margin-top: 30px; }
+  </style>
+</head>
+<body>
+  <%- include('navbar', { user: user }) %>
+  <div class="container">
+    <h1 class="text-center my-4">Bienvenue sur Instead !</h1>
+    <% posts.forEach(function(post) { %>
+      <div class="card post-card">
+        <div class="card-body">
+          <div class="post-header">
+            <a href="/user/<%= post.author.id %>">
+              <img src="<%= post.author.profilePicture %>" alt="Profil">
+            </a>
+            <div>
+              <strong><%= post.author.username %></strong><br>
+              <small class="text-muted">
+                <%= new Date(post.createdAt).toLocaleDateString("fr-FR") %> à <%= new Date(post.createdAt).toLocaleTimeString("fr-FR") %>
+              </small>
+            </div>
+          </div>
+          <h4 class="card-title text-center"><%= post.title %></h4>
+          <h6 class="card-text text-center"><%= post.content %></h6>
+          <div class="post-actions">
+            <form method="POST" action="/post/like/<%= post.id %>">
+              <button type="submit" class="btn btn-outline-primary">
+                <i class="bi bi-hand-thumbs-up"></i> J'aime (<%= post.likes %>)
+              </button>
+            </form>
+            <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#comments-<%= post.id %>">
+              <i class="bi bi-chat"></i> Commenter
+            </button>
+          </div>
+          <div class="collapse mt-3" id="comments-<%= post.id %>">
+            <h6>Commentaires</h6>
+            <% if (post.comments && post.comments.length > 0) { %>
+              <ul class="list-group mb-3">
+                <% post.comments.forEach(function(comment) { %>
+                <li class="list-group-item d-flex align-items-start">
+                  <a href="/user/<%= comment.user.id %>">
+                    <img src="<%= comment.user.profilePicture %>" alt="Profil" style="width:40px; height:40px; object-fit:cover; border-radius:50%;" class="me-2">
+                  </a>
+                  <div>
+                    <strong>
+                      <a href="/user/<%= comment.user.id %>" class="text-decoration-none text-dark">
+                        <%= comment.user.username %>
+                      </a>
+                    </strong>
+                    <br>
+                    <small class="text-muted">
+                      <%= new Date(comment.createdAt).toLocaleDateString("fr-FR") %> à <%= new Date(comment.createdAt).toLocaleTimeString("fr-FR") %>
+                    </small>
+                    <p class="mb-0"><%= comment.content %></p>
+                  </div>
+                </li>
+              <% }); %>
+              </ul>
+            <% } else { %>
+              <p class="text-muted">Aucun commentaire pour l'instant.</p>
+            <% } %>
+            <form method="POST" action="/comment/new/<%= post.id %>">
+              <textarea name="comment" class="form-control" rows="2" placeholder="Votre commentaire..." required></textarea>
+              <button type="submit" class="btn btn-sm btn-secondary mt-2">Envoyer</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    <% }); %>
+    <div class="card new-post-card">
+      <div class="card-body">
+        <h5 class="card-title">Créer un nouveau post</h5>
+        <form id="newPostForm" method="POST" action="/post/new">
+          <div class="mb-3">
+            <input type="text" name="title" class="form-control" placeholder="Titre du post" required>
+          </div>
+          <div class="mb-3">
+            <textarea name="content" class="form-control" rows="3" placeholder="Votre post..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Publier</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

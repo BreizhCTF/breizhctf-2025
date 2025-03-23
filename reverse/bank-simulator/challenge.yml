@@ -1,0 +1,55 @@
+name: "Bank Simulator"
+author: "Drahoxx"
+category: Reverse
+description: |-
+    ![Old typewritter](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZ3d6eDNhaWxiMTdzd25kaDRvYzVpZzlkdndwdmJkbWM0ZDk4N3k4ciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/xUPGcCEoY4LKQGOrFm/giphy.gif)
+    
+    Cela fait maintenant 3 ans que je suis bloqué dans le jeu Bank-Simulator, je n'ai jamais reçu le code dont ils parlent.
+
+    Pouvez-vous m'aider ?
+
+    Auteur : [Drahoxx](https://x.com/50mgDrahoxx)
+
+attribution: 'Auteur : [Drahoxx](https://x.com/50mgDrahoxx)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+flags:
+    - BZHCTF{CoB0l_4_3v3r}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Très Facile
+    - Cobol
+    - Reverse
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/bank-simulator
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

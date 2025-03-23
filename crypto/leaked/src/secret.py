@@ -1,0 +1,1 @@
+FLAG = "BZHCTF{les_maths_ne_font_malheuresement_pas_tout_:(}"

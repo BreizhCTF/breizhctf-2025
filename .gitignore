@@ -1,0 +1,8 @@
+.vscode
+.idea
+.ctf/config
+
+__pycache__
+node_modules
+vendor
+.gradle

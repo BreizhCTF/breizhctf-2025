@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FBI : Foutus Bretons Indépendantistes</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+            color: #f8f9fa;
+            background: #121212;
+            overflow-x: hidden;
+        }
+
+        header {
+            background: linear-gradient(90deg, #003366, #006699);
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        main {
+            padding: 20px;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            padding: 10px;
+            background: #2c2f33;
+            margin: 10px 0;
+            border-radius: 5px;
+            transition: transform 0.3s, background 0.3s;
+        }
+
+        ul li:hover {
+            transform: scale(1.05);
+            background: #3c4045;
+        }
+
+        .api-box {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-top: 20px;
+        }
+
+        .api-box input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: none;
+            border-radius: 4px;
+            background: #333;
+            color: #f8f9fa;
+            font-size: 1em;
+        }
+
+        .api-box button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background: #006699;
+            color: #f8f9fa;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s;
+        }
+
+        .api-box button:hover {
+            background: #004466;
+        }
+
+        .api-result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #2c2f33;
+            border-radius: 5px;
+            color: #f8f9fa;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #003366;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            color: #f8f9fa;
+            font-size: 0.9em;
+        }
+
+        .typing {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 4s steps(30, end), blink 0.75s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        .spy-effect {
+            text-shadow: 0px 0px 10px rgba(255, 0, 0, 0.7),
+                         0px 0px 20px rgba(255, 0, 0, 0.5);
+            animation: flicker 1.5s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+    </style>
+    <script>
+        async function fetchApiData(endpoint, number, resultElement) {
+            try {
+                const response = await fetch(`/app/${endpoint}/${number}`);
+                const data = await response.json();
+                resultElement.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                resultElement.textContent = 'Erreur lors de la connexion à l’API.';
+            }
+        }
+
+        function setupApiBox(id, endpoint) {
+            const box = document.getElementById(id);
+            const input = box.querySelector('input');
+            const button = box.querySelector('button');
+            const result = box.querySelector('.api-result');
+
+            button.addEventListener('click', () => {
+                fetchApiData(endpoint, input.value, result);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setupApiBox('location-box', 'track/location');
+            setupApiBox('owner-box', 'track/owner');
+            setupApiBox('company-box', 'track/company');
+            setupApiBox('last-call-box', 'track/last-called-number');
+            setupApiBox('password-crack-box', 'burner/crack-password');
+            setupApiBox('all-info-box', 'infos');
+            setupApiBox('company-info', 'company/infos');
+            setupApiBox('company-phones', 'company/get-phones');
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1 class="spy-effect">[FBI] Foutus Bretons Indépendantistes</h1>
+        <p class="typing">Surveillance, secrets et galettes... Nous avons tout ce qu'il vous faut.</p>
+    </header>
+
+    <main>
+        <section>
+            <div id="all-info-box" class="api-box">
+                <h3>Informations complètes</h3>
+                <input type="text" placeholder="Entrez un numéro de téléphone">
+                <button>Rechercher</button>
+                <pre class="api-result"></pre>
+            </div>
+
+            <div id="location-box" class="api-box">
+                <h3>Suivi de localisation</h3>
+                <input type="text" placeholder="Entrez un numéro de téléphone">
+                <button>Rechercher</button>
+                <pre class="api-result"></pre>
+            </div>
+        
+            <div id="owner-box" class="api-box">
+                <h3>Informations du propriétaire</h3>
+                <input type="text" placeholder="Entrez un numéro de téléphone">
+                <button>Rechercher</button>
+                <pre class="api-result"></pre>
+            </div>
+        
+            <div id="company-box" class="api-box">
+                <h3>Société téléphonique</h3>
+                <input type="text" placeholder="Entrez un numéro de téléphone">
+                <button>Rechercher</button>
+                <pre class="api-result"></pre>
+            </div>
+        
+            <div id="last-call-box" class="api-box">
+                <h3>Dernier appel effectué</h3>
+                <input type="text" placeholder="Entrez un numéro de téléphone">
+                <button>Rechercher</button>
+                <pre class="api-result"></pre>
+            </div>
+        
+            <div id="password-crack-box" class="api-box">
+                <h3>Crack de mots de passe</h3>
+                <input type="text" placeholder="Entrez un mot de passe (très court)">
+                <button>Crack</button>
+                <pre class="api-result"></pre>
+            </div>
+
+            <div id="company-info" class="api-box">
+                <h3>Information sur la société téléphonique</h3>
+                <i>TechCorp, MobileCo, FastPhone, Bleu, O3, SeaDigital, BurnerBZH</i>
+                <input type="text" placeholder="Entrez le nom de l'entreprise">
+                <button>Rechercher</button>
+                <pre class="api-result"></pre>
+            </div>
+
+            <div id="company-phones" class="api-box">
+                <h3>Liste des numéros enregistrés chez la société téléphonique</h3>
+                <i>TechCorp, MobileCo, FastPhone, Bleu, O3, SeaDigital, BurnerBZH</i>
+                <input type="text" placeholder="Entrez le nom de l'entreprise">
+                <button>Rechercher</button>
+                <pre class="api-result"></pre>
+            </div>
+        </section>        
+    </main>
+
+    <footer>
+        <p>FBI - Une organisation bretonne, au service du mystère.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ .post.Title }} - GORMiti Blog</title>
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/post.css" rel="stylesheet">
+</head>
+<body>
+  <div class="header">
+    <h1>GORMiti Blog</h1>
+    <p>L'univers légendaire des GORMiti</p>
+  </div>
+  <div class="container">
+    <div class="post-detail">
+      <img src="{{ .post.Image }}" alt="{{ .post.Title }}">
+      <h2>{{ .post.Title }}</h2>
+      <p>{{ .post.Teaser }}</p>
+      <hr>
+      <p>{{ .post.Content }}</p>
+      <a href="/" class="btn btn-primary">Retour à l'accueil</a>
+    </div>
+  </div>
+  <div class="footer">
+    <p>&copy; 2025 GORMiti Website. Aucun droits réservés.</p>
+  </div>
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

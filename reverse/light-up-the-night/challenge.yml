@@ -1,0 +1,54 @@
+name: "Light Up the Night"
+author: "NineLine"
+category: Reverse
+description: |-
+    ![maze](https://media1.tenor.com/m/h4CXY-u8mbwAAAAd/alice-in-wonderland-maze.gif)
+    
+    Votre ami est perdu dans un labyrinthe. Il vous affirme qu'il a l'impression de tout le temps revenir au départ.
+    Saurez-vous trouver le bon chemin et sortir ?
+
+    Auteur : [NineLine](#)
+
+attribution: 'Auteur : NineLine'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+
+flags:
+    - BZHCTF{N0t_4lL_wHo_W4nD3R_4r3_L05t}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+    - Reverse
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/light_up_the_night_game.zip
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

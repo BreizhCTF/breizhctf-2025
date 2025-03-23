@@ -1,0 +1,64 @@
+name: "VaultMania"
+author: "Mika"
+category: Web
+description: |-
+    ![Vault](https://media1.tenor.com/m/_Bx2ZuIme_8AAAAd/open-the-vault-gta-online.gif)
+
+    Ce nouveau service de coffres forts sécurisés a l'air très sympathique... Essayez de voler le contenu du coffre de l'utilisateur premium, dont la surveillance est assurée par un gardien des plus coriaces.
+
+    Auteur : [Mika](https://x.com/bWlrYQ)
+
+attribution: 'Auteur : [Mika](https://x.com/bWlrYQ)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: vaultmania
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+# connection_info: http://designer.challenges.ctf.bzh
+
+flags:
+    - BZHCTF{P1N_ExF1LTR4T10N_No_J4v4scR1pT_G03s_Brrr<3}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Très Difficile
+    - Web-Client
+    - HTML
+    - CSP
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/vaultmania.zip
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+#requirements:
+#    - "Warmup"
+#    - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

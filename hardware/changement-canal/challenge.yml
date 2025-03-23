@@ -1,0 +1,51 @@
+name: "Changement de canal"
+author: "ribt"
+category: Hardware
+description: |-
+    ![GIF](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExdjM4NmdsMnBzOHRlYmppaDNlMTNsc2VrZHFhN2xhZDd6Nmk1N2dtciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/LwxzFXEymTsf6/giphy.gif)
+
+    Un collègue a découvert comment fonctionnait le [dispositif CTCSS](https://fr.wikipedia.org/wiki/CTCSS) qui permet à plusieurs utilisateurs de partager une même fréquence radio sans s'interférer, en créant artificiellement des canaux. Il a décidé d'utiliser ce mécanisme pour communiquer discrètement avec ses amis. Il a créé un dispositif qui joue une musique en changeant de canal toutes les trois secondes. Une émission sur le canal 1 désigne la transmission la lettre `A`, le canal 2 pour la lettre `B`, etc. jusqu'au canal 26 pour la lettre `Z`. Une pause sans canal entre deux lettres correspond à un espace (représenté par un `_` dans le flag).
+
+    Vous avez allumé votre talkie-walkie et entendu la musique envoyée par son dispositif. Retrouvez le message caché.
+
+    Le flag est en majuscules au format `BZHCTF{MESSAGE_EN_PLUSIEURS_MOTS}`.
+
+    Auteur : [ribt](https://github.com/ribt)
+
+    
+attribution: 'Auteur : [ribt](https://github.com/ribt)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - BZHCTF{LES_CANAUX_CTCSS_NE_SONT_PAS_CONFIDENTIELS_DU_TOUT}
+
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Moyen
+    - Programmation
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/changement_de_canal.mp3
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+requirements: []
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

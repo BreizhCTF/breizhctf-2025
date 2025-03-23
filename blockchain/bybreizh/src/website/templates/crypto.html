@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Graphique de {{ crypto_id | capitalize }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body class="bg-gray-900 text-white">
+  <nav class="bg-black p-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <a href="/" class="text-2xl font-bold text-green-400">ByNormandie</a>
+      <div class="space-x-4">
+        <a href="/" class="hover:text-green-400">Accueil</a>
+        <a href="/about" class="hover:text-green-400">À propos</a>
+      </div>
+    </div>
+  </nav>
+  
+  <div class="container mx-auto p-8">
+    <h1 class="text-4xl font-bold text-center mb-8">
+      Graphique de {{ crypto_id | capitalize }}
+    </h1>
+    <div class="bg-gray-800 rounded-lg p-4 shadow-lg mb-8">
+      <canvas id="cryptoChart" class="w-full" style="height: 400px;"></canvas>
+    </div>
+    
+    <div id="secretModule" class="bg-gray-800 rounded-lg p-4 shadow-lg mb-8" style="display: none;">
+      <h2 class="text-2xl font-bold mb-4">Accès aux logs internes</h2>
+      <p class="mb-4">
+        Dans le cadre de ByNormandie, seuls les initiés peuvent consulter les logs internes du système.
+        Entrez le chemin du fichier pour accéder aux informations.
+      </p>
+      <form method="get" action="/crypto/{{ crypto_id }}">
+        <input type="text" name="secret_file" placeholder="Chemin du fichier" class="w-full p-2 bg-gray-700 rounded mb-4">
+        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded">
+          Accéder aux logs
+        </button>
+      </form>
+      {% if secret_content %}
+      <div class="mt-4 p-4 bg-gray-700 rounded">
+        <h3 class="text-xl font-bold mb-2">Logs internes :</h3>
+        <pre class="whitespace-pre-wrap">{{ secret_content }}</pre>
+      </div>
+      {% endif %}
+    </div>
+    
+    <div class="text-center">
+      <a href="/" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+        Retour au Dashboard
+      </a>
+    </div>
+  </div>
+  
+  <canvas id="cryptoChart" class="w-full" style="height: 400px;"></canvas>
+
+  <script>
+      fetch('/crypto/{{ crypto_id }}/chart-data')
+        .then(response => response.json())
+        .then(data => {
+          if (data.error) {
+              document.getElementById("cryptoChart").innerHTML = "<p class='text-red-500'>Données indisponibles</p>";
+              return;
+          }  
+          const ctx = document.getElementById('cryptoChart').getContext('2d');
+          new Chart(ctx, {
+            type: 'line',
+            data: {
+              labels: data.labels,
+              datasets: [{
+                label: '{{ crypto_id | capitalize }} (USD)',
+                data: data.prices,
+                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                borderWidth: 2,
+                fill: false
+              }]
+            },
+            options: {
+              plugins: { legend: { display: false } },
+              scales: { x: { display: false }, y: { display: false } },
+              elements: { point: { radius: 0 } },
+              responsive: true,
+              maintainAspectRatio: false
+            }
+          });
+        })
+  </script>
+</body>
+</html>

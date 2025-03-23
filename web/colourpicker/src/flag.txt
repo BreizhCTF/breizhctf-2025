@@ -1,0 +1,1 @@
+BZHCTF{SQLi_t0_RC3_WiTH_JWT_N_CSS:o}

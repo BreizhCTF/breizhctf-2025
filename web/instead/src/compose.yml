@@ -1,0 +1,12 @@
+version: "3.1"
+
+services:
+  app:
+    build:
+      context: ./chall/
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    environment:
+      NODE_ENV: production
+    restart: always

@@ -1,0 +1,1 @@
+flag = "BZHCTF{le_cube_median_semblait_securise_pourtant...}"

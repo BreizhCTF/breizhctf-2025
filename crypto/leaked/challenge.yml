@@ -1,0 +1,67 @@
+name: "Leaked"
+author: "TheoR"
+category: Crypto
+description: |-
+  ![Safe Crypto](https://i.imgflip.com/9jgf7u.jpg)
+
+  Notre ami Bob souhaite communiquer avec Alice de manière sécurisée. Il a donc chiffré son message est utilisant les courbes elliptiques.
+  
+  Dans le même temps, une personne malicieuse a récupéré de manière illégale la consommation électrique de l'ordinateur de Bob lors de la génération des clés. Espérons que l'algorithme de Bob soit assez robuste !!
+
+  Auteur : [TheoR](#)
+
+
+attribution: 'Auteur : TheoR'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+
+flags:
+    - BZHCTF{les_maths_ne_font_malheuresement_pas_tout_:(}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+    - SideChannel
+    - ECC
+    - Crypto
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/crypto_leaked.py
+    - files/traces_leaked.txt
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+#requirements:
+#    - "Warmup"
+#    - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

@@ -1,0 +1,61 @@
+name: "Où va Eduardo O'Sullivan"
+author: "Paudou"
+category: OSINT
+description: |-
+    ![Karen](https://media1.tenor.com/m/6SmsVJp5PtsAAAAC/karen-cool.gif)
+
+    Vous retracez la discussion petit à petit avec Florian, et un élément vous interpelle.
+    L’homme a raconté avoir reçu sa mère quelques jours avant l’incident, et l’avoir emmenée plusieurs fois au campement de l’île d’Egueye.
+    Elle avait tellement adoré qu’elle aurait laissé un avis sur un site de tourisme. “La honte” d’après le mystérieux étranger.
+    Florian vous apprend aussi qu’après les événements, il a fui à travers le monde, mais aurait laissé quelques indices sur sa localisation.
+    Retrouvez les villes par lesquelles il est passé.
+
+    Le flag est constitué du nom des villes, séparées par un `_`, tout en minuscules, sans accents et par ordre chronologique.
+
+    Par exemple : `BZHCTF{quimper_quimperle_redon_auray}`
+
+    Auteur : [Paudou](#)
+
+
+attribution: 'Auteur : [Paudou](#)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+flags:
+    - BZHCTF{ziguinchor_hanoi_shanghai_athenes_dusseldorf_londres}
+    - BZHCTF{ziguinchor_hanoi_shanghai_athènes_düsseldorf_londres}
+    - BZHCTF{Ziguinchor_Hanoi_Shanghai_Athenes_Dusseldorf_Londres}
+    - BZHCTF{Ziguinchor_Hanoi_Shanghai_Athènes_Düsseldorf_Londres}
+
+# - BZHCTF{ziguinchor_hanoi_shanghai_athenes_dusseldorf_cardiff_londres}
+# - BZHCTF{ziguinchor_hanoi_shanghai_athènes_düsseldorf_cardiff_londres}
+# - BZHCTF{Ziguinchor_Hanoi_Shanghai_Athenes_Dusseldorf_Cardiff_Londres}
+# - BZHCTF{Ziguinchor_Hanoi_Shanghai_Athènes_Düsseldorf_Cardiff_Londres}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

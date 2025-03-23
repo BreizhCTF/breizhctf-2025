@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion ou Inscription - Instead</title>
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body { background-color: #eef2f7; }
+    .card { border: none; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+    .card img { height: 100px; }
+  </style>
+</head>
+<body>
+  <div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="card p-4" style="width: 100%; max-width: 400px;">
+      <div class="text-center mb-4">
+        <img src="/static/img/logo.png" alt="Logo">
+      </div>
+      <h5 id="toggleText" class="text-center mb-3">Prêt à passer à l'étape suivante ?</h5>
+      <p class="text-center text-muted small">
+        Inscrivez-vous ou connectez-vous pour accéder à votre espace.
+      </p>
+      <div id="errorBox" class="alert alert-danger mt-3" style="display: none;"></div>
+      <div id="successBox" class="alert alert-success mt-3" style="display: none;"></div>
+      <form id="loginForm" onsubmit="return false;">
+        <div class="mb-3">
+          <label for="username" class="form-label">Nom d'utilisateur <span class="text-danger">*</span></label>
+          <input name="username" id="username" class="form-control" placeholder="Votre username" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Mot de passe <span class="text-danger">*</span></label>
+          <input type="password" name="password" id="password" class="form-control" placeholder="Votre mot de passe" required>
+        </div>
+        <div class="d-grid">
+          <button id="submitButton" class="btn btn-primary" onclick="login()">Continuer →</button>
+        </div>
+      </form>
+      <hr>
+      <div id="switchModeText" class="text-center">
+        <p class="small">Pas encore inscrit ? <a role="button" class="link-underline-primary" onclick="switchAuthMode()">Créer un compte</a></p>
+      </div>
+    </div>
+  </div>
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/script.js"></script>
+</body>
+</html>

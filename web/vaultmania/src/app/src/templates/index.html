@@ -1,0 +1,35 @@
+{% include 'generic/head.html' %}
+
+{% block content %}
+    <div class="container-fluid text-center w-50 mx-auto">
+        <h1>VaultMania</h1>
+
+        <p>Bienvenue chez <b>VaultMania</b>, le fournisseur de coffres forts virtuels sécurisés par excellence.</p>
+
+        <p>Ici, nous prenons la sécurité de vos données et l'anonymat très au sérieux. Le secret est le coeur de nôtre 
+            activité, pas de nom d'utilisateur, pas d'adresse mail. Seul le plus important compte, votre coffre fort.
+            C'est pourquoi nous avons mis en place un système simple, à l'image d'une banque traditionnelle.
+        </p>
+
+        <img class="img-fluid" src="{{url_for('static', filename='images/vault.jpg')}}" alt="Vault" id="vault">
+
+        <p class="mt-2">Lorsque vous entrez dans la salle des coffres, vous pouvez voir tous les coffres, mais seul le vôtre est accessible grâce à 
+            votre clé unique. Chez <b>VaultMania</b> la clé est représentée par un code PIN allant de 4 à 10 chiffres. Plus les documents
+            de votre coffre sont importants, plus vôtre PIN doit être long.
+        </p>
+
+        <p>Notre système est totalement gratuit, rendez-vous dans l'onglet <a href="{{url_for('vaults')}}">vaults</a> pour ouvrir
+            votre premier coffre fort.
+        </p>
+        
+        <p>Nous avons également une offre payante en bêta-test pour le moment avec un système de gardien qui passe vérifier 
+            toutes les 2 minutes que rien n'a été volé dans votre coffre (en le dévérouillant avec votre PIN), 
+            grâce à un inventaire détaillé qui peut nous être laissé. 
+        </p>
+
+        <p>
+            Contactez-nous à l'adresse <b>guardian@vaultmania.local</b> pour plus d'informations.
+        </p>
+    </div>
+{% endblock %}
+{% include 'generic/footer.html' %}

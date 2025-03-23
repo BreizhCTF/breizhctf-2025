@@ -1,0 +1,59 @@
+{% include 'generic/head.html' %}
+
+{% block content %}
+<div class="container w-75">    
+    <h2 class="text-center">Bienvenue propriétaire du coffre n°{{ vault.id|safe }} !</h2>
+    {% if entries %}
+    {% for entry in entries %}
+    <div class="card mb-3">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <span>Entry n°{{ entry.id|safe }}</span>
+            <span class="badge bg-danger text-dark"><a href="{{url_for('delete_entry', entry_id=entry.id)}}" id="linkDelete">Delete</a></span>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ entry.entry_type|safe }}</h5>
+            <p class="card-text">{{ entry.value|safe }}</p>
+            {% if entry.note %}
+            <p class="card-text">{{ entry.note|safe }}</p>
+            {% endif %}
+        </div>
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div>
+        <form method="POST" action="{{url_for('add_entry')}}" class="">
+            <fieldset class="border p-4">
+                <legend class="w-auto px-2">Ajouter une entrée</legend>
+                <div class="row">
+                    <div class="col-md">
+                        <div class="mb-3">
+                            <label for="entryType" class="form-label">Type d'entrée</label>
+                            <input type="text" class="form-control" id="entryType" name="entryType" required>
+                        </div>
+                    </div> 
+                    <div class="col-md">
+                        <div class="mb-3">
+                            <label for="entryValue" class="form-label">Valeur</label>
+                            <input type="text" class="form-control" id="entryValue" name="entryValue" required>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="mb-3">
+                        <label for="entryNote" class="form-label">Note</label>
+                        <textarea class="form-control" id="entryNote" name="entryNote" rows="3"></textarea>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Ajouter</button>
+            </fieldset>
+            <hr>
+            <div class="text-center">
+                <a class="btn btn-danger" href="{{url_for('delete')}}">Supprimer le coffre</a>
+                <a class="btn btn-warning" href="{{url_for('lock')}}">Fermer le coffre</a>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+{% include 'generic/footer.html' %}

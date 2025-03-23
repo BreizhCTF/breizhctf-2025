@@ -1,0 +1,59 @@
+name: "Exemple TCP"
+author: "La Brosse Adam"
+category: Exemple
+description: |-
+    ![Cat](https://media1.tenor.com/m/-WCbK43rv2MAAAAd/kotique-cat-tongue.gif)
+
+    Balbabla
+attribution: 'Auteur : [La Brosse Adam](https://x.com/adam_le_bon)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+connection_info: nc exemple-tcp.chall.ctf.bzh 1337
+
+flags:
+    - BZHCTF{exemple_tcp}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Très Facile
+    - C
+    - Reverse
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/challenge
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+requirements:
+    - "Warmup"
+    - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

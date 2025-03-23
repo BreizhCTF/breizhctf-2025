@@ -1,0 +1,33 @@
+{% include 'generic/head.html' %}
+
+{% block content %}
+    <script src="{{url_for('static', filename='js/colorpicker.js')}}" defer></script>
+    <div class="container text-center w-25">
+        <h1>Bienvenue, {{username}}</h1>
+        {% if success %}
+            <div class="alert alert-success" role="alert">
+                {{ success }}
+            </div>
+        {% endif %}
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}
+        <h3 class="mb-3">Ici, vous pouvez choisir la couleur de votre fond :</h3>
+
+        <form action="/" method="POST" class="mt-2 mb-2">
+            <div class="mb-3">
+                <input id="new-colour" type="text" class="form-control" name="colour" required value="{{user_colour}}" readonly>
+            </div>
+            <button type="submit" class="btn btn-success w-100">Sauvegarder la couleur</button>
+        </form>
+
+        <hr>
+
+        <color-picker open="false" hex="{{user_colour}}" id="picker"></color-picker>
+        <button class="btn btn-warning w-100" id="open-picker">Ouvrir le menu des couleurs</button>
+    </div>
+{% endblock %}
+
+{% include 'generic/footer.html' %}

@@ -1,0 +1,16 @@
+version: '3'
+services:
+  curlmania:
+    build: 
+      context: ./app/
+      dockerfile: Dockerfile
+    ports:
+      - 8002:80
+    environment:
+      - PORT=80
+      - DEBUG=False
+      - FLAG=BZHCTF{W0w_You_KnoW_H0w_To_FLLW_INSTRXCTIONS!!}
+    volumes:
+      - ./flag.txt:/flag.txt:ro
+    mem_limit: 512m
+    cpu_count: 1

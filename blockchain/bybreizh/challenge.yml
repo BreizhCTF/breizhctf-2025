@@ -1,0 +1,63 @@
+name: "ByBreizh"
+author: "K.L.M"
+category: Blockchain
+description: |-
+  ![Chart](https://media1.tenor.com/m/QqgcGkB7X50AAAAd/bitcoin-chart-bitcoin-zoom.gif)
+
+  Oh non, la plateforme ByBreizh a été hackée par un Normand nommé CrêpesMaster. Il a volé toutes les crypto-monnaies des utilisateurs.
+
+  Il aurait apparemment créé une plateforme nommée ByNormandie pour se moquer de nous ! D'après les informations que nous avons, il serait possible de récupérer la clé privée de son portefeuille et d'accéder à son contrat intelligent lui permettant de gérer ses fonds.
+
+  Nous avons besoin de vous, trouvez sa clé privée en exploitant son site web et récupérez les fonds volés en exploitant les contrats intelligents que vous trouverez ci-joint. (La factory est déjà déployée, à vous de la trouver :))
+
+  La clé privée de CrêpesMaster est dans le fichier `/home/crepesmaster/notes.txt` sur le serveur web.
+
+  Auteur : [K.L.M](#)
+
+attribution: 'Auteur : K.L.M'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: bybreizh
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - BZHCTF{N0rm4nd1e_1sn't_Str0ng_3n0ugh}
+    - BZHCTF{N0rm4nd1e_1sn-t_Str0ng_3n0ugh}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Difficile
+    - Blockchain
+    - Web
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/Challenge.sol
+    - files/factory.sol
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+#requirements:
+#    - "Warmup"
+#    - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

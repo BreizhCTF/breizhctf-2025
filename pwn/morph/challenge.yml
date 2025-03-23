@@ -1,0 +1,49 @@
+name: "Morph"
+author: "Drahoxx"
+category: Pwn
+description: |-
+    ![ditto](https://media.tenor.com/5E6vi7nOjJkAAAAC/ditto-me-too.gif)
+
+    Métamorph peut se transformer, mais attention, certaines caractéristiques peuvent ne pas lui plaire !
+
+    **Note :** Vous pouvez vous inspirer du fichier `template.py` afin d'interagir avec le serveur.
+
+    > Le flag se situe sur le serveur distant (`/challenge/flag.txt`).
+
+    Auteur : [Drahoxx](https://x.com/50mgDrahoxx)
+
+attribution: 'Auteur : [Drahoxx](https://x.com/50mgDrahoxx)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: morph
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - BZHCTF{PikaPika_erm...MetaMeta}
+
+# Les topics ne sont visibles que par les admins
+topics:
+     - shellcoding
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Très Facile
+    - Shellcode
+    - Pwn
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/morph.zip
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

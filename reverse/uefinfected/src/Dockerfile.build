@@ -1,0 +1,36 @@
+FROM debian
+
+WORKDIR /BZH
+
+RUN apt update && apt install -y git gcc build-essential uuid-dev iasl nasm python-is-python3 qemu-utils dosfstools
+RUN git clone --progress --verbose https://github.com/tianocore/edk2
+
+
+WORKDIR /BZH/edk2
+
+RUN git checkout edk2-stable202411
+
+RUN git submodule update --init
+
+RUN make -C BaseTools
+
+COPY target.txt Conf/target.txt
+
+SHELL ["/bin/bash", "-c"] 
+
+RUN sed -i 's|MdeModulePkg/Application/HelloWorld/HelloWorld.inf|MdeModulePkg/Application/UEFInfected/UEFInfected.inf|' /BZH/edk2/MdeModulePkg/MdeModulePkg.dsc
+
+RUN mkdir -p /BZH/edk2/MdeModulePkg/Application/UEFInfected
+
+COPY UEFInfected /BZH/edk2/MdeModulePkg/Application/UEFInfected
+
+RUN source edksetup.sh && build -m MdeModulePkg/Application/UEFInfected/UEFInfected.inf -n $(nproc)
+
+RUN cp /BZH/edk2/Build/MdeModule/RELEASE_GCC5/X64/MdeModulePkg/Application/UEFInfected/UEFInfected/OUTPUT/UEFInfected.efi /UEFInfected.efi
+
+
+# Rebuild disque1.img
+
+WORKDIR /
+
+CMD ["tail", "-f", "/dev/null"]

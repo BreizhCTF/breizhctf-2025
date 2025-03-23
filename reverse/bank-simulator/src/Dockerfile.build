@@ -1,0 +1,12 @@
+FROM debian:latest
+
+RUN mkdir /app && \
+    apt update && \
+    apt install -y gnucobol binutils --no-install-recommends
+
+COPY bank-simulator.cob /app
+
+WORKDIR /app
+
+RUN cobc -x -o /app/bank-simulator /app/bank-simulator.cob
+RUN strip /app/bank-simulator

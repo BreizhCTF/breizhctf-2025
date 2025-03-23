@@ -1,0 +1,59 @@
+name: "Vol d'identifiants"
+author: "ribt"
+category: Forensic
+description: |-
+    ![password](https://media1.tenor.com/m/teBw9wmlw3sAAAAd/password.gif)
+
+    La police a mis sur écoute un individu malveillant. Retrouvez le mot de passe qu'il utilise pour se connecter.
+
+    Auteur : [ribt](https://github.com/ribt)
+
+
+attribution: 'Auteur : [ribt](https://github.com/ribt)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+    # Pour les challenge à la demande uniquement
+    # À remplir par un sysadmin
+    # template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+flags:
+    - BZHCTF{It's_important_t0_us3_HTTPS}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Très Facile
+    - Wireshark
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/capture_vol_identifiants.pcapng
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+requirements: []
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

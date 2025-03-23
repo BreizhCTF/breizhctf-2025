@@ -1,0 +1,81 @@
+<html>
+<head>
+    <title>BreizhCTF 2k25</title>
+    <script src="/static/tailwind.js"></script>
+</head>
+<body class="bg-white dark:bg-gray-900">
+    <section>
+        <div class="py-8 px-4 mx-auto max-w-screen-xl text-center lg:py-16">
+            <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-gray-900 md:text-5xl lg:text-6xl dark:text-white">Infos du Challenge</h1>
+            <p class="mb-8 text-lg font-normal text-gray-500 lg:text-xl sm:px-16 lg:px-48 dark:text-gray-400">Vous vous réveillez dans une dimension alternative, et entendez une voix au loin qui vous indique de prendre le bon chemin. Impossible d'ouvrir les yeux, vous devrez avancer en testant vos sens et votre perception de l'épreuve qui vous attends. Trouvez un moyen de réussir l'épreuve.</p>
+            <br/>
+            <div class="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-4">
+                <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+                    <tbody>
+                        <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Votre clé privée
+                            </th>
+                            <td class="px-6 py-4">
+                                {{ key }}
+                            </td>
+                        </tr>
+                        <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Votre adresse
+                            </th>
+                            <td class="px-6 py-4">
+                                {{ address }}
+                            </td>
+                        </tr>
+                        <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Adresse du challenge
+                            </th>
+                            <td class="px-6 py-4">
+                                {{ challenge }}
+                            </td>
+                        </tr>
+                        <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                URL du RPC
+                            </th>
+                            <td id="rpc" class="px-6 py-4">
+                                loading...
+                            </td>
+                        </tr>
+                        <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                Chain ID
+                            </th>
+                            <td class="px-6 py-4">
+                                1337
+                            </td>
+                        </tr>
+                        <tr class="border-b bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+                            <th scope="row" class="px-6 py-4 font-medium whitespace-nowrap dark:text-white">
+                                Flag
+                            </th>
+                            <td id="flag" class="px-6 py-4">
+                                BZHCTF{}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <button onclick="flag()" type="button" class="my-4 focus:outline-none text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900">Obtenir le Flag</button>
+        </div>
+    </section>
+
+    <script>
+        document.getElementById("rpc").innerText = window.location.href.replace('#','') + 'rpc';
+        function flag() {
+            fetch('/flag')
+            .then(response => response.text())
+            .then(response => {
+                document.getElementById("flag").innerText = response;
+            });
+        }
+    </script>
+</body>
+</html>

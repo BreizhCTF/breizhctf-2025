@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Designer</title>
+        <link rel="icon" href="{{url_for('static', filename='images/breizh_hand.png')}}">
+
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+        <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}"></script>
+
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/default.min.css')}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/highlightjs-copy.min.css')}}">
+        <script src="{{url_for('static', filename='js/highlight.min.js')}}"></script>
+        <script src="{{url_for('static', filename='js/highlightjs-copy.min.js')}}"></script>
+
+    </head>
+    <body class="d-flex flex-column min-vh-100">
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid flex-column">
+                    <a class="navbar-brand mx-auto" href="{{url_for('index')}}">
+                        <img src="{{url_for('static', filename='images/breizh_hand.png')}}" alt="Logo" class="d-block mx-auto" style="height: 30px;">
+                    </a>
+                    <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                        <ul class="navbar-nav text-center">
+                            <li class="nav-item">
+                                <a class="nav-link text-uppercase custom-nav-item" aria-current="page" href="{{url_for('designer')}}">Diy!</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-uppercase custom-nav-item" href="{{url_for('report')}}">Report</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <img src="{{url_for('static', filename='images/brush_cropped.png')}}" alt="brush" class="d-block mx-auto w-75" style="height: 20px;">
+        <main class="flex-grow-1">

@@ -1,0 +1,47 @@
+name: "BReIZHmulator 1/2"
+author: "Endeavxor"
+category: Reverse
+description: |-
+    ![BReIZHmulator](https://i.ibb.co/TMQZCkht/BRe-IZHmulator.jpg)
+
+    Vous avez mis la main sur une vieille machine, un émulateur d’une époque révolue. Tout semble archaïque, mais sous les couches de code ancien, quelque chose de précieux se cache.
+    Vous comprendrez vite que chaque détail compte. Le flag est là, mais pour l'attraper, vous devrez vous jouer de cette machine du passé.
+
+    Auteur : [Endeavxor](#)
+
+attribution: "Auteur : Endeavxor"
+
+# Valeur maximale du challenge en points
+value: 500
+type: dynamic
+state: visible
+
+extra:
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - BZHCTF{VM_F7_m0dul4R_4RI7hM37IC_4r3_70_345y_F0R_Y0u}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Moyen
+    - Reverse
+    - VM
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/Breizhmulator-1.zip
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

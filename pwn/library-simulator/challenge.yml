@@ -1,0 +1,66 @@
+name: "Library Simulator"
+author: "Tek"
+category: Pwn
+description: |-
+    ![Silence bibliothécaire](https://media1.tenor.com/m/BH2gmDNumrAAAAAd/monster-librarian.gif)
+
+    Après Supermarket Simulator, voici Library Simulator.
+    Plongez dans la peau d'un lecteur fou et empruntez des livres à la bibliothèque !
+
+    Auteur : [Tek](#)
+
+
+attribution: 'Auteur : Tek'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: library-simulator
+    initial: 500
+    decay: 100
+    minimum: 50
+
+# Pour les challenge à la demande uniquement
+# À remplir par un sysadmin
+# template_name: exemple-tcp 
+
+# Pour les challenge communs uniquement
+# À remplir par un sysadmin
+
+flags:
+    - BZHCTF{booooring..._476f6e7472616e4c}
+
+# Les topics ne sont visibles que par les admins
+topics:
+    - bibliothèque
+    - buffer overflow
+    - ropchain
+    - ret2main
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Moyen
+    - C
+    - Pwn
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/library_simulator.zip
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+# requirements:
+#     - "Warmup"
+#     - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"
+

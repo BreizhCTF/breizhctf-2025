@@ -1,0 +1,56 @@
+name: "Designer"
+author: "Mika"
+category: Web
+description: |-
+    ![Designer](https://media1.tenor.com/m/e6_z-q3LUKoAAAAd/web-development-web.gif)
+    
+    Un nouveau SaaS ennuyeux a publié son application inutile, qui devrait vous aider à générer des boutons/liens HTML sans avoir à écrire de code... Selon nous, il n'y a pas d'utilité spécifique à ce truc. Néanmoins, ils semblent récompenser les personnes qui peuvent trouver des vulnérabilités sur leurs produits avec des flags.
+
+    Auteur : [Mika](https://x.com/bWlrYQ)
+
+
+attribution: 'Auteur : [Mika](https://x.com/bWlrYQ)'
+
+# Valeur maximale du challenge en points
+value: 500
+type: ctfkit
+state: visible
+
+extra:
+    template_name: designer
+    initial: 500
+    decay: 100
+    minimum: 50
+
+flags:
+    - BZHCTF{P1Ng_P0nG_1s_4w3s0m3_D0_Y0u_4Gr33?}
+
+# Les topics ne sont visibles que par les admins
+# topics:
+#     - information disclosure
+#     - buffer overflow
+#     - memory forensics
+
+# Les tags sont visisbles par les joueurs et peuvent donner une idée du thème du challenge
+# Il doit y avoir au moins un tag annoncant la difficulté (Très Facile/Facile/Moyen/Difficile/Très Difficile)
+tags:
+    - Facile
+    - Web-Client
+    - HTML
+
+# Liste des fichiers à fournirs aux joueurs
+files:
+    - files/designer.zip
+
+# Requirements are used to make a challenge require another challenge to be
+# solved before being available.
+# Can be removed if unused
+# Accepts challenge names as strings or challenge IDs as integers
+#requirements:
+#    - "Warmup"
+#    - "Are you alive"
+
+# The state of the challenge.
+# If the field is omitted, the challenge is visible by default.
+# If provided, the field can take one of two values: hidden, visible.
+version: "0.1"

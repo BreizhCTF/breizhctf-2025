@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>VaultMania</title>
+        <link rel="icon" href="{{url_for('static', filename='images/icon.png')}}">
+
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}" nonce="{{nonce}}">
+        <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}" nonce="{{nonce}}">
+        <script src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}" nonce="{{nonce}}"></script>
+
+    </head>
+    <body class="d-flex flex-column min-vh-100">
+        <header>
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid flex-column">
+                    <a class="navbar-brand mx-auto" href="{{url_for('index')}}">
+                        <img src="{{url_for('static', filename='images/icon.png')}}" alt="Logo" class="d-block mx-auto" id="logo">
+                    </a>
+                    <button class="navbar-toggler mx-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                        <ul class="navbar-nav text-center">
+                            <li class="nav-item">
+                                <a class="nav-link text-uppercase custom-nav-item" aria-current="page" href="{{url_for('index')}}">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-uppercase custom-nav-item" href="{{url_for('vaults')}}">Vaults</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        <hr>
+        <main class="flex-grow-1">
+            {% with messages = get_flashed_messages(with_categories=True) %}
+            {% if messages %}
+            <div class="container mt-1 w-75">
+                {% for category, message in messages %}
+                <div class="alert alert-{{ 'success' if category == 'success' else 'danger' }} alert-dismissible fade show" role="alert">
+                    {{ message }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+            {% endwith %}

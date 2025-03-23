@@ -1,0 +1,26 @@
+version: '3'
+services:
+  designer:
+    build: 
+      context: ./app/
+      dockerfile: Dockerfile
+    ports:
+      - 8000:80
+    environment:
+      - PORT=80
+      - DEBUG=False
+      - ADMIN_ENDPOINT=http://localhost:8000/report
+    mem_limit: 512m
+    cpu_count: 1
+
+  bot:
+    build:
+      context: ./bot/
+      dockerfile: bot.Dockerfile
+    environment:
+      - DESIGNER_ENDPOINT=http://localhost/
+      - FLAG=BZHCTF{P1Ng_P0nG_1s_4w3s0m3_D0_Y0u_4Gr33?}
+      - PORT=8000
+    network_mode: service:designer
+    mem_limit: 2g
+    cpu_count: 2

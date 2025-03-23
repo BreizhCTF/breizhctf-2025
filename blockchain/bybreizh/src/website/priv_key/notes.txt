@@ -1,0 +1,30 @@
+Quels nullos ces bretons, et dire qu'ils avaient 5 signataires et qu'ils sont tous tombes dans le panneau...
+
+Il faut que je mette ma cle privee quelque part sinon je vais la perdre.
+
+0x3da2b9f371d75f03e91bbbeb1da81fac34721d71a2b12bd1ae547426a4b4f559
+
+Aller, plus qu'a attendre quelques jours le temps de blanchir tout cet argent. 
+
+LA BRETAGNE EST FINIE
+
+D'ailleurs, je ne dois pas oublier que j'ai mis en place un contrat cle qui permet de deverouiller les interactions avec mon vault :))
+
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Keyy {
+    string public Key;
+
+    constructor() {
+        Key = "Normandie4ever";
+    }
+}
+
+salt : 0xad0a990189248f3b99ddf7978b28654f5261b05830d2b4356927726d9528810a
+
+il n'y a que moi qui sait comment je peux deployer ce contrat a la bonne adresse hehehe. Et surtout uniquement moi qui connait l'adresse de ma factory :)
+
+L'ADRESSE DE LA BLOCKCHAIN EST SUR LE PORT 9000
+
+#Il n'y a pas de fautes d'orthographe, je ne pouvais juste pas mettre d'accents (je ne sais pas pourquoi).

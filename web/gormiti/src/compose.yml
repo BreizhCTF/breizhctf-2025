@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+    container_name: gormiti-app
+    network_mode: service:nginx
+
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: nginx.Dockerfile
+    container_name: gormiti-nginx
+    ports:
+      - "80:80"
