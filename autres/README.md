@@ -2,6 +2,6 @@
 
 ## Challenges
 
-| Challenge Name    | Author    | Difficulty    |
-| ----------------- | --------- | ------------- |
-| Bienvenue         |           | Très Facile   |
+| Challenge       | Auteur | Difficulté | Flags |
+| --------------- | ------ | ---------- | ----- |
+| [Bienvenue](./bienvenue) | Zeecka | Très Facile | 118 |

@@ -2,8 +2,8 @@
 
 ## Challenges
 
-| Challenge Name      | Author    | Difficulty    |
-| ------------------- | --------- | ------------- |
-| Formind - Hair Rémy | darkpills |  Facile       |
-| Inria - PirHack 1/2 | PIRAT\'); |  Moyen        |
-| Inria - PirHack 2/2 | PIRAT\'); |  Moyen        |
+| Challenge       | Auteur | Difficulté | Flags |
+| --------------- | ------ | ---------- | ----- |
+| [Formind - Hair Rémy](./formind-hair-remy) | Formind - darkpills | Moyen | 0 |
+| [Inria - PirHack 2/2](./inria-pirhack-2) | Inria - PIRAT\'); | Moyen | 8 |
+| [Inria - PirHack 1/2](./inria-pirhack-1) | Inria - PIRAT\'); | Moyen | 13 |

@@ -6,9 +6,9 @@ These tasks often focus on smart contract bugs, transaction analysis, or cryptog
 
 ## Challenges
 
-| Challenge Name    | Author    | Difficulty    |
-| ----------------- | --------- | ------------- |
-| WelcomeGame       | KLM       | Très Facile   |
-| Mystical Angel	| KLM       | Facile        |
-| Blind Guy	        | KLM       | Moyen         |
-| ByBreizh			| KLM       | Difficile     |
+| Challenge       | Auteur | Difficulté | Flags |
+| --------------- | ------ | ---------- | ----- |
+| [Welcome Game](./welcome-game) | K.L.M | Très Facile | 79 |
+| [Mystical Angel](./mystical-angel) | K.L.M | Facile | 13 |
+| [Blind Guy](./blind-guy) | K.L.M | Moyen | 3 |
+| [ByBreizh](./bybreizh) | K.L.M | Difficile | 1 |

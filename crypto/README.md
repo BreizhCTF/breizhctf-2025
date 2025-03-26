@@ -8,12 +8,12 @@ These tasks highlight the importance of securing data through robust algorithms 
 
 ## Challenges
 
-| Challenge Name                | Author                          | Difficulty     |
-| ----------------------------- | ------------------------------- | -------------- |
-| AutHentification (ou pas...)  | [skilo](https://x.com/skilo_sh) | Facile         |
-| AutHentification, le retour ! | [skilo](https://x.com/skilo_sh) | Difficile      |
-| CubeMedian                    | [TheoR](#)                      | Facile         |
-| Leaked                        | [TheoR](#)                      | Facile         |
-| Demi-tour                     | [skilo](https://x.com/skilo_sh) | Moyen          |
-| Locked                        | [TheoR](#)                      | Difficile      |
-| As-tu de bons yeux ?          | [skilo](https://x.com/skilo_sh) | Très Difficile |
+| Challenge       | Auteur | Difficulté | Flags |
+| --------------- | ------ | ---------- | ----- |
+| [Cube Median](./cubemedian) | TheoR | Facile | 58 |
+| [AutHentification (ou pas...)](./authentification-1) | [skilo](https://x.com/skilo_sh) | Facile | 19 |
+| [Leaked](./leaked) | TheoR | Facile | 6 |
+| [Demi-tour](./demi-tour) | [skilo](https://x.com/skilo_sh) | Moyen | 4 |
+| [Locked](./locked) | TheoR | Difficile | 0 |
+| [AutHentification, le retour !](./authentification-2) | [skilo](https://x.com/skilo_sh) | Difficile | 1 |
+| [As-tu de bons yeux ?](./as-tu-de-bons-yeux) | [skilo](https://x.com/skilo_sh) | Très Difficile | 0 |
